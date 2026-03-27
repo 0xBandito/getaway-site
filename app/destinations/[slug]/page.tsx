@@ -41,17 +41,17 @@ export default async function DestinationPage({
         name={destination.name}
         tagline={destination.tagline}
         searchQuery={destination.searchQuery}
-        contactChip={destination.contactChip}
+        contactChips={destination.contactChips}
       />
       <DestinationHighlights highlights={destination.highlights} />
       <DestinationGallery searchQuery={destination.searchQuery} />
       <DestinationDeals
         deals={destination.deals}
-        contactChip={destination.contactChip}
+        contactChips={destination.contactChips}
       />
       <DestinationCTA
         name={destination.name}
-        contactChip={destination.contactChip}
+        contactChips={destination.contactChips}
       />
     </>
   )

@@ -181,13 +181,13 @@ export default function CruisesPage() {
           {itineraries.map((itinerary, index) => (
             <ImageCard
               key={index}
-              index={index + 4}
+              index={index}
               searchQuery={itinerary.searchQuery}
               title={itinerary.title}
               subtitle={itinerary.ports.join(" → ")}
               tag={itinerary.duration}
               price={itinerary.price}
-              chip={itinerary.chip}
+              contactUrl={`/contact?destination=${encodeURIComponent(itinerary.title)}&type=Cruise`}
             />
           ))}
         </div>
@@ -214,7 +214,7 @@ export default function CruisesPage() {
                 title={line.name}
                 subtitle={`Best for: ${line.bestFor}`}
                 price={line.priceRange}
-                chip="Caribbean cruise"
+                contactUrl={`/contact?destination=${encodeURIComponent(line.name)}&type=Cruise`}
               />
             ))}
           </div>
@@ -241,7 +241,7 @@ export default function CruisesPage() {
             experience you're looking for. Hear back within 24–48 hours.
           </p>
           <Link
-            href="/contact?trip=Caribbean%20cruise"
+            href="/contact?type=Cruise"
             className="inline-block px-10 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
           >
             Plan My Cruise

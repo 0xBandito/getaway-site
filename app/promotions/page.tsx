@@ -123,7 +123,7 @@ export default function PromotionsPage() {
                   </p>
                 </div>
                 <Link
-                  href={`/contact?trip=${encodeURIComponent(promo.chip)}`}
+                  href={`/contact?destination=${encodeURIComponent(promo.title)}&type=Resort`}
                   className="block text-center px-6 py-3 bg-[#4A90D9] text-white text-xs tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
                 >
                   Claim This Deal

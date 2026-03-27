@@ -35,7 +35,7 @@ export async function fetchUnsplashImages(
 
   return data.results.map((photo: any) => ({
     id: photo.id,
-    url: photo.urls.regular,
+    url: photo.urls.full,
     thumb: photo.urls.small,
     alt: photo.alt_description || query,
     photographer: photo.user.name,

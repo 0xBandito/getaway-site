@@ -7,14 +7,14 @@ type Props = {
   name: string
   tagline: string
   searchQuery: string
-  contactChip: string
+  contactChips: string[]
 }
 
 export default function DestinationHero({
   name,
   tagline,
   searchQuery,
-  contactChip,
+  contactChips,
 }: Props) {
   const [heroImage, setHeroImage] = useState<string | null>(null)
 
@@ -63,7 +63,7 @@ export default function DestinationHero({
           {tagline}
         </p>
         <Link
-          href={`/contact?trip=${encodeURIComponent(contactChip)}`}
+          href={`/contact?destination=${encodeURIComponent(name)}`}
           className="inline-block px-8 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
         >
           Plan This Trip

@@ -33,16 +33,17 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState)
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  // Pre-select chip from URL param
   useEffect(() => {
-    const trip = searchParams.get("trip")
-    if (trip) {
-      setForm((prev) => ({ ...prev, tripType: trip }))
-    }
+    const destination = searchParams.get("destination")
+    const type = searchParams.get("type")
+    setForm((prev) => ({
+      ...prev,
+      destinations: destination ? decodeURIComponent(destination) : "",
+      tripType: type ? decodeURIComponent(type) : "",
+    }))
   }, [searchParams])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -55,7 +56,7 @@ export default function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          subject: `New Trip Inquiry — ${form.tripType || "General"}`,
+          subject: `New Trip Inquiry — ${form.destinations || "General"}`,
           from_name: form.name,
           contact: form.contact,
           destinations: form.destinations,
@@ -132,11 +133,48 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Destinations — top of form */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
+            Destination(s)
+          </label>
+          <input
+            type="text"
+            name="destinations"
+            value={form.destinations}
+            onChange={handleChange}
+            placeholder="Caribbean, Europe, open to ideas..."
+            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
+            style={{ fontFamily: "var(--font-jost)" }}
+          />
+        </div>
+        <div>
+          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
+            When Are You Thinking?
+          </label>
+          <input
+            type="text"
+            name="when"
+            value={form.when}
+            onChange={handleChange}
+            placeholder="Summer 2025, flexible..."
+            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
+            style={{ fontFamily: "var(--font-jost)" }}
+          />
+        </div>
+      </div>
+
       {/* Trip type chips */}
-      <TripTypeChips
-        selected={form.tripType}
-        onChange={(val) => setForm((prev) => ({ ...prev, tripType: val }))}
-      />
+      <div>
+        <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-3">
+          Type of Trip
+        </label>
+        <TripTypeChips
+          selected={form.tripType}
+          onChange={(val) => setForm((prev) => ({ ...prev, tripType: val }))}
+        />
+      </div>
 
       <div className="border-t border-[#D8E8F8]" />
 
@@ -153,7 +191,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="First name is fine"
             required
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#b0a898] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
+            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
             style={{ fontFamily: "var(--font-jost)" }}
           />
         </div>
@@ -168,39 +206,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Email or phone"
             required
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#b0a898] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
-          />
-        </div>
-      </div>
-
-      {/* Destinations and when */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Destination(s)
-          </label>
-          <input
-            type="text"
-            name="destinations"
-            value={form.destinations}
-            onChange={handleChange}
-            placeholder="Caribbean, Europe, open to ideas..."
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#b0a898] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
-          />
-        </div>
-        <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            When Are You Thinking?
-          </label>
-          <input
-            type="text"
-            name="when"
-            value={form.when}
-            onChange={handleChange}
-            placeholder="Summer 2025, flexible..."
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#b0a898] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
+            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
             style={{ fontFamily: "var(--font-jost)" }}
           />
         </div>
@@ -276,7 +282,7 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Anniversary trip, bucket list, dietary needs, budget details..."
           rows={5}
-          className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#b0a898] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200 resize-none"
+          className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200 resize-none"
           style={{ fontFamily: "var(--font-jost)" }}
         />
       </div>

@@ -29,7 +29,7 @@ export type Destination = {
   highlights: string[]
   tripTypes: string[]
   searchQuery: string
-  contactChip: string
+  contactChips: string[]
   deals: Deal[]
 }
 
@@ -49,7 +49,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Caribbean cruise", "All-inclusive resort", "Honeymoon"],
     searchQuery: "caribbean beach tropical island",
-    contactChip: "Caribbean cruise",
+    contactChips: ["Caribbean cruise", "All-inclusive resort", "Honeymoon"],
     deals: [
       {
         title: "7-Night Caribbean Cruise",
@@ -82,7 +82,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["All-inclusive resort", "Group trip", "Honeymoon"],
     searchQuery: "mexico beach resort cancun tulum",
-    contactChip: "All-inclusive resort",
+    contactChips: ["All-inclusive resort", "Group trip", "Honeymoon"],
     deals: [
       {
         title: "Cancún All-Inclusive Package",
@@ -115,7 +115,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Europe tour", "Honeymoon", "Group trip"],
     searchQuery: "europe travel city architecture",
-    contactChip: "Europe tour",
+    contactChips: ["Europe tour", "Honeymoon", "Group trip"],
     deals: [
       {
         title: "10-Night Western Europe Tour",
@@ -148,7 +148,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Honeymoon", "Caribbean cruise", "Europe tour"],
     searchQuery: "mediterranean coast sea cliffs sunset",
-    contactChip: "Europe tour",
+    contactChips: ["Europe tour", "Honeymoon"],
     deals: [
       {
         title: "Mediterranean Cruise",
@@ -181,7 +181,8 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Honeymoon", "All-inclusive resort", "Group trip"],
     searchQuery: "hawaii beach volcanic island tropical",
-    contactChip: "All-inclusive resort",
+    contactChips: ["Honeymoon", "All-inclusive resort"],
+
     deals: [
       {
         title: "Maui Honeymoon Package",
@@ -214,7 +215,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Honeymoon", "All-inclusive resort"],
     searchQuery: "maldives overwater bungalow lagoon luxury",
-    contactChip: "Honeymoon",
+    contactChips: ["Honeymoon", "All-inclusive resort"],
     deals: [
       {
         title: "Overwater Bungalow Escape",
@@ -240,7 +241,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Group trip", "Europe tour"],
     searchQuery: "southeast asia temple bali thailand beach",
-    contactChip: "Group trip",
+    contactChips: ["Group trip", "Not sure yet"],
     deals: [
       {
         title: "Bali Bliss",
@@ -273,7 +274,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Group trip", "Honeymoon"],
     searchQuery: "africa safari savanna wildlife kenya",
-    contactChip: "Group trip",
+    contactChips: ["Group trip", "Honeymoon"],
     deals: [
       {
         title: "Kenya & Tanzania Safari",
@@ -306,7 +307,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Group trip", "Not sure yet"],
     searchQuery: "costa rica rainforest waterfall tropical",
-    contactChip: "Not sure yet",
+    contactChips: ["Group trip", "Not sure yet"],
     deals: [
       {
         title: "Costa Rica Adventure",
@@ -332,7 +333,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Group trip", "Not sure yet"],
     searchQuery: "south america machu picchu patagonia andes",
-    contactChip: "Not sure yet",
+    contactChips: ["Group trip", "Not sure yet"],
     deals: [
       {
         title: "Peru & Machu Picchu",
@@ -365,7 +366,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["Caribbean cruise", "Group trip"],
     searchQuery: "cruise ship ocean luxury travel",
-    contactChip: "Caribbean cruise",
+    contactChips: ["Caribbean cruise", "Group trip"],
     deals: [
       {
         title: "7-Night Bahamas Cruise",
@@ -398,7 +399,7 @@ export const destinations: Destination[] = [
     ],
     tripTypes: ["All-inclusive resort", "Honeymoon", "Group trip"],
     searchQuery: "all inclusive resort pool beach luxury",
-    contactChip: "All-inclusive resort",
+    contactChips: ["All-inclusive resort", "Honeymoon", "Group trip"],
     deals: [
       {
         title: "Sandals Jamaica — Couples Only",

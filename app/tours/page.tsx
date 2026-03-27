@@ -106,12 +106,13 @@ export default function ToursPage() {
           {tours.map((tour, index) => (
             <ImageCard
               key={index}
+              index={index}
               searchQuery={tour.searchQuery}
               title={tour.title}
               subtitle={tour.destinations.join(" → ")}
               tag={tour.tag}
               price={tour.price}
-              chip={tour.chip}
+              contactUrl={`/contact?destination=${encodeURIComponent(tour.title)}&type=Tour`}
             />
           ))}
         </div>
@@ -138,7 +139,7 @@ export default function ToursPage() {
             built from scratch.
           </p>
           <Link
-            href="/contact?trip=Not%20sure%20yet"
+            href="/contact?type=Tour"
             className="inline-block px-10 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
           >
             Build My Tour

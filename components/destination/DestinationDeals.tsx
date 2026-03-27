@@ -3,12 +3,12 @@ import { Deal } from "@/lib/destinations"
 
 type Props = {
   deals: Deal[]
-  contactChip: string
+  contactChips: string[]
 }
 
-export default function DestinationDeals({ deals, contactChip }: Props) {
+export default function DestinationDeals({ deals, contactChips }: Props) {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-[#F0F6FF] py-20">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
           Featured Packages
@@ -23,7 +23,7 @@ export default function DestinationDeals({ deals, contactChip }: Props) {
           {deals.map((deal, index) => (
             <div
               key={index}
-              className="border border-[#D8E8F8] p-8 flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-[#D8E8F8] p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div>
                 <div className="flex items-start justify-between mb-4">
@@ -52,7 +52,7 @@ export default function DestinationDeals({ deals, contactChip }: Props) {
                   {deal.price}
                 </p>
                 <Link
-                  href={`/contact?trip=${encodeURIComponent(contactChip)}`}
+                  href={`/contact?destination=${encodeURIComponent(deal.title)}&type=Resort`}
                   className="px-6 py-3 bg-[#4A90D9] text-white text-xs tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
                 >
                   Get A Quote
