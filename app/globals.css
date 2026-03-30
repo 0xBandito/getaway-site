@@ -70,9 +70,11 @@ body {
 }
 
 .animate-ken-burns {
-  animation: ken-burns 20s ease-in-out infinite;
+  animation: none;
 }
 
-.animate-fade-up {
-  animation: fade-up 1s ease-out forwards;
+@media (min-width: 768px) {
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-in-out infinite;
+  }
 }

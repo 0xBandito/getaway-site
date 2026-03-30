@@ -1,62 +1,34 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { destinations } from "@/lib/destinations"
+import { Destination } from "@/lib/destinations"
 import TripReel from "@/components/home/TripReel"
 import FeaturedDestinations from "@/components/home/FeaturedDestinations"
 
-export default function HomePage() {
-  const featured = destinations.slice(0, 6)
-  const [heroImage, setHeroImage] = useState<string | null>(null)
-  const [scrollY, setScrollY] = useState(0)
-  const heroRef = useRef<HTMLDivElement>(null)
+type Props = {
+  heroImage: string | null
+  featured: Destination[]
+}
 
-  // Fetch plane/sky hero image
-  useEffect(() => {
-    fetch("/api/images?query=airplane+window+wing+sky+clouds&count=3")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.images?.[0]) setHeroImage(data.images[0].url)
-      })
-      .catch(console.error)
-  }, [])
-
-  // Parallax scroll
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
+export default function HomeClient({ heroImage, featured }: Props) {
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden">
-        {/* Parallax background */}
-        <div
-          className="absolute inset-0 scale-110"
-          style={{
-            transform: `scale(1.1) translateY(${scrollY * 0.3}px)`,
-            transition: "transform 0.1s linear",
-          }}
-        >
-          {/* Ken Burns animation on image */}
+      <section className="relative h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0">
           <div
             className="absolute inset-0 bg-cover bg-center animate-ken-burns"
             style={{
               backgroundImage: heroImage
                 ? `url(${heroImage})`
-                : "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+                : "linear-gradient(135deg, #1C3F6E 0%, #4A90D9 100%)",
             }}
           />
-          </div>
+        </div>
 
-        {/* Layered overlays for depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
-        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="animate-fade-up">
             <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-8">
@@ -68,7 +40,7 @@ export default function HomePage() {
             >
               Your dream
               <br />
-              <span className="italic text-[#c4956a]">trip,</span>
+              <span className="italic text-[#87B8E8]">trip,</span>
               <br />
               planned for you.
             </h1>
@@ -76,7 +48,8 @@ export default function HomePage() {
               className="text-lg text-white/60 mb-12 max-w-md leading-relaxed font-light"
               style={{ fontFamily: "var(--font-jost)" }}
             >
-              Cameron handles every detail — from first inquiry to final boarding pass — so you arrive already relaxed.
+              Tell Cameron where you've been dreaming of going.
+              Get a personalized plan built around you — not a template.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -94,18 +67,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
       </section>
 
-      {/* Trip reel strip */}
-      <div className="bg-[#FAF7F2]">
-        <TripReel />
-      </div>
+      <TripReel />
 
-      {/* Why Getaway — light editorial layout */}
+      {/* Why Getaway */}
       <section className="bg-[#F0F6FF] py-32">
         <div className="max-w-7xl mx-auto px-8">
-          {/* Header */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-[#4A90D9] mb-6">
@@ -131,7 +99,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Three points — horizontal editorial */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-[#D8E8F8]">
             {[
               {
@@ -178,7 +145,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="mt-16 flex items-center gap-8">
             <Link
               href="/contact"
@@ -199,11 +165,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured destinations */}
-
-      <div className="bg-[#FAF7F2]">
-        <FeaturedDestinations destinations={featured} />
-      </div>
+      <FeaturedDestinations destinations={featured} />
 
       {/* Testimonials */}
       <section className="bg-[#F0F6FF] py-24">
@@ -232,7 +194,6 @@ export default function HomePage() {
                   className="text-[#5B7FA6] leading-relaxed mb-6 italic text-lg font-light"
                   style={{ fontFamily: "var(--font-cormorant)" }}
                 >
-                  {/* PLACEHOLDER — insert customer review here */}
                   "Cameron made our honeymoon everything we dreamed of and
                   more. Every detail was perfect and we didn't have to
                   stress about a thing."
@@ -241,7 +202,6 @@ export default function HomePage() {
                   className="text-xs tracking-[0.2em] uppercase text-[#1C3F6E]"
                   style={{ fontFamily: "var(--font-jost)" }}
                 >
-                  {/* PLACEHOLDER — insert customer name and destination */}
                   — Happy Traveler, Caribbean
                 </p>
               </div>
