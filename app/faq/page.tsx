@@ -45,106 +45,97 @@ export default function FAQPage() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="min-h-screen bg-[#FAF7F2]">
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
-          FAQ
-        </p>
-        <h1
-          className="text-5xl md:text-6xl font-light text-[#1C3F6E] mb-16"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Questions? Cameron has answers.
-        </h1>
+    <section className="min-h-screen">
+      {/* Header */}
+      <div className="bg-cream-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+            FAQ
+          </p>
+          <h1 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-6">
+            Questions? Cameron has <span className="font-display italic font-medium text-[var(--color-sky)]">answers</span>.
+          </h1>
+        </div>
+      </div>
 
-        <div className="space-y-0">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border-t border-[#D8E8F8] last:border-b"
-            >
-              <button
-                onClick={() => setOpen(open === index ? null : index)}
-                className="w-full flex items-center justify-between py-6 text-left"
+      {/* FAQ Accordion */}
+      <div className="bg-sky-wash">
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <div className="space-y-0">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border-t border-[var(--color-sky-200)]/30 last:border-b"
               >
-                <p
-                  className="text-lg text-[#1C3F6E] pr-8"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
+                <button
+                  onClick={() => setOpen(open === index ? null : index)}
+                  className="w-full flex items-center justify-between py-6 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sky)] focus-visible:ring-offset-2 rounded-lg"
                 >
-                  {faq.question}
-                </p>
-                <span className="text-[#4A90D9] text-xl shrink-0">
-                  {open === index ? "−" : "+"}
-                </span>
-              </button>
-              {open === index && (
-                <div className="pb-6">
-                  <p
-                    className="text-[#5B7FA6] leading-relaxed"
-                    style={{ fontFamily: "var(--font-jost)" }}
-                  >
-                    {faq.answer}
+                  <p className="font-body text-lg font-semibold text-[var(--color-ink)] pr-8 group-hover:text-[var(--color-sky)] transition-colors duration-200">
+                    {faq.question}
                   </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-        
-        {/* Passport section */}
-        <div className="mt-12 p-8 bg-[#1C3F6E] rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p
-              className="text-xs tracking-[0.2em] uppercase text-[#8BACC8] mb-2"
-              style={{ fontFamily: "var(--font-jost)" }}
-            >
-              Planning to travel internationally?
-            </p>
-            <h3
-              className="text-2xl font-light text-white"
-              style={{ fontFamily: "var(--font-cormorant)" }}
-            >
-              Need a passport before you travel?
-            </h3>
-            <p
-              className="text-sm text-[#8BACC8] mt-2 leading-relaxed"
-              style={{ fontFamily: "var(--font-jost)" }}
-            >
-              Most international trips require a valid U.S. passport. Apply or
-              renew directly through the U.S. Department of State.
-            </p>
+                  <span className="text-[var(--color-sky)] text-xl shrink-0 transition-transform duration-200" style={{ transform: open === index ? 'rotate(45deg)' : 'rotate(0deg)' }}>
+                    +
+                  </span>
+                </button>
+                {open === index && (
+                  <div className="pb-6">
+                    <p className="font-body text-[var(--color-muted)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          
-            <a href="https://travel.state.gov/content/travel/en/passports.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 px-8 py-4 bg-[#4A90D9] text-white text-xs tracking-[0.2em] uppercase hover:bg-[#3a7bc8] transition-colors duration-200 whitespace-nowrap"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
-            Apply for a U.S. Passport →
-          </a>
         </div>
+      </div>
 
-        {/* CTA */}
-        <div className="mt-16 p-8 bg-white border border-[#D8E8F8] text-center">
-          <p
-            className="text-2xl font-light text-[#1C3F6E] mb-4"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            Still have questions?
-          </p>
-          <p
-            className="text-sm text-[#5B7FA6] mb-6"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
-            Cameron responds to every inquiry within 24–48 hours.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
-          >
-            Get In Touch
-          </Link>
+      {/* Passport section */}
+      <div className="bg-cream-gradient">
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <div className="p-8 bg-[var(--color-ink)] rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-2">
+                Planning to travel internationally?
+              </p>
+              <h3 className="font-body text-2xl font-bold tracking-tight text-white">
+                Need a passport before you <span className="font-display italic font-medium text-[var(--color-sky)]">travel</span>?
+              </h3>
+              <p className="font-body text-sm text-[var(--color-muted)] mt-2 leading-relaxed">
+                Most international trips require a valid U.S. passport. Apply or
+                renew directly through the U.S. Department of State.
+              </p>
+            </div>
+            <a
+              href="https://travel.state.gov/content/travel/en/passports.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline rounded-full px-8 py-3.5 text-sm font-semibold font-body shrink-0 whitespace-nowrap border-white/30 text-white hover:bg-white/10"
+            >
+              Apply for a U.S. Passport →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="bg-cloud-gradient">
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <div className="rounded-2xl border border-[var(--color-sky-200)]/30 shadow-sm bg-white/80 backdrop-blur-sm p-8 text-center">
+            <h3 className="font-body text-2xl font-bold tracking-tight text-[var(--color-ink)] mb-4">
+              Still have <span className="font-display italic font-medium text-[var(--color-sky)]">questions</span>?
+            </h3>
+            <p className="font-body text-sm text-[var(--color-muted)] mb-6">
+              Cameron responds to every inquiry within 24–48 hours.
+            </p>
+            <Link
+              href="/contact"
+              className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body inline-block"
+            >
+              Get In Touch
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Trip Reel | Getaway",
+  title: "Trip Reel | Travel With Cameron",
   description:
-    "Real trips. Real memories. A look at where Getaway has taken travelers around the world.",
+    "Real trips. Real memories. A look at where Travel With Cameron has taken travelers around the world.",
 }
 
 const trips = [
@@ -59,135 +59,125 @@ const trips = [
 
 export default function TripReelPage() {
   return (
-    <section className="min-h-screen bg-[#F0F6FF]">
-      <div className="max-w-7xl mx-auto px-8 py-20">
-        <p className="text-xs tracking-[0.3em] uppercase text-[#4A90D9] mb-4">
-          Trip Reel
-        </p>
-        <h1
-          className="text-5xl md:text-7xl font-light text-[#1C3F6E] mb-6"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Real trips. Real memories.
-        </h1>
-        <p
-          className="text-lg text-[#5B7FA6] max-w-2xl mb-20 font-light"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
-          Every photo is from a real trip — planned, booked, and handled
-          by Cameron.
-        </p>
+    <section className="min-h-screen">
+      {/* Header */}
+      <div className="bg-sky-wash">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+            Trip Reel
+          </p>
+          <h1 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-6">
+            Real trips. <span className="font-display italic font-medium text-[var(--color-sky)]">Real memories</span>.
+          </h1>
+          <p className="font-body text-lg text-[var(--color-muted)] max-w-2xl mb-20 leading-relaxed">
+            Every photo is from a real trip — planned, booked, and handled
+            by Cameron.
+          </p>
+        </div>
+      </div>
 
-        {/* Polaroid wall */}
-        <div
-          className="relative"
-          style={{
-            background: "#FAF7F2",
-            borderRadius: "24px",
-            padding: "48px 32px",
-            minHeight: "600px",
-            boxShadow: "inset 0 2px 12px rgba(28,63,110,0.06)",
-          }}
-        >
-          {/* Cork texture dots */}
-          <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none opacity-20">
-            {[...Array(40)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-[#EDE5D8]"
-                style={{
-                  width: `${Math.random() * 4 + 2}px`,
-                  height: `${Math.random() * 4 + 2}px`,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-              />
-            ))}
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
-            {trips.map((trip, index) => (
-              <div
-                key={index}
-                className={`${trip.rotate} hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer`}
-                style={{
-                  transformOrigin: "center center",
-                }}
-              >
-                {/* Polaroid frame */}
+      {/* Polaroid wall */}
+      <div className="bg-cream-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <div
+            className="relative rounded-2xl p-8 md:p-12"
+            style={{
+              background: "rgba(255,255,255,0.6)",
+              backdropFilter: "blur(8px)",
+              boxShadow: "inset 0 2px 12px rgba(28,63,110,0.06)",
+            }}
+          >
+            {/* Cork texture dots */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none opacity-20">
+              {[...Array(40)].map((_, i) => (
                 <div
+                  key={i}
+                  className="absolute rounded-full bg-[#EDE5D8]"
                   style={{
-                    background: "white",
-                    padding: "10px 10px 36px 10px",
-                    boxShadow: "0 4px 20px rgba(28,63,110,0.15), 0 1px 4px rgba(28,63,110,0.1)",
-                  }}
-                >
-                  {/* Photo */}
-                  <div
-                    style={{
-                      width: "100%",
-                      aspectRatio: "1/1",
-                      overflow: "hidden",
-                      background: "#D8E8F8",
-                    }}
-                  >
-                    <img
-                      src={trip.src}
-                      alt={trip.location}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* Polaroid caption */}
-                  <div style={{ padding: "10px 4px 0" }}>
-                    <p
-                      className="text-xs text-[#1C3F6E] font-medium tracking-wide"
-                      style={{ fontFamily: "var(--font-jost)" }}
-                    >
-                      {trip.location}
-                    </p>
-                    <p
-                      className="text-xs text-[#5B7FA6] mt-1 italic"
-                      style={{ fontFamily: "var(--font-cormorant)", fontSize: "14px" }}
-                    >
-                      {trip.caption}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Pin */}
-                <div
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#4A90D9] z-20"
-                  style={{
-                    boxShadow: "0 2px 6px rgba(74,144,217,0.4)",
+                    width: `${Math.random() * 4 + 2}px`,
+                    height: `${Math.random() * 4 + 2}px`,
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
                   }}
                 />
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+              {trips.map((trip, index) => (
+                <div
+                  key={index}
+                  className={`${trip.rotate} hover:rotate-0 hover:scale-105 transition-transform duration-300 cursor-pointer relative`}
+                  style={{
+                    transformOrigin: "center center",
+                  }}
+                >
+                  {/* Polaroid frame */}
+                  <div className="rounded-xl overflow-hidden"
+                    style={{
+                      background: "white",
+                      padding: "10px 10px 36px 10px",
+                      boxShadow: "0 4px 20px rgba(28,63,110,0.15), 0 1px 4px rgba(28,63,110,0.1)",
+                    }}
+                  >
+                    {/* Photo */}
+                    <div
+                      style={{
+                        width: "100%",
+                        aspectRatio: "1/1",
+                        overflow: "hidden",
+                        background: "var(--color-sky-200)",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <img
+                        src={trip.src}
+                        alt={trip.location}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                        loading="lazy"
+                      />
+                    </div>
+                    {/* Polaroid caption */}
+                    <div style={{ padding: "10px 4px 0" }}>
+                      <p className="font-body text-xs text-[var(--color-ink)] font-semibold tracking-wide">
+                        {trip.location}
+                      </p>
+                      <p className="font-display italic text-sm text-[var(--color-muted)] mt-1">
+                        {trip.caption}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Pin */}
+                  <div
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[var(--color-sky)] z-20"
+                    style={{
+                      boxShadow: "0 2px 6px rgba(74,144,217,0.4)",
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* CTA */}
-        <div className="mt-20 text-center">
-          <p
-            className="text-4xl font-light text-[#1C3F6E] mb-4"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            Your trip could be next.
-          </p>
-          <p
-            className="text-[#5B7FA6] mb-8"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
+      {/* CTA */}
+      <div className="bg-cloud-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20 text-center">
+          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-ink)] mb-4">
+            Your trip could be <span className="font-display italic font-medium text-[var(--color-sky)]">next</span>.
+          </h2>
+          <p className="font-body text-[var(--color-muted)] mb-8">
             Tell Cameron where you want to go.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-[#4A90D9] text-white text-xs tracking-[0.2em] uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
+            className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body inline-block"
           >
             Start Planning
           </Link>

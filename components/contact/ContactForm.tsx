@@ -28,11 +28,21 @@ const initialState: FormState = {
   tripType: "",
 }
 
+const inputClass =
+  "w-full px-4 py-3 rounded-lg border border-[var(--color-sky-200)]/40 bg-white text-[var(--color-ink)] placeholder-[var(--color-muted)]/50 font-body text-sm focus:outline-none focus:border-[var(--color-sky)] transition-colors duration-200"
+
+const selectClass =
+  "w-full px-4 py-3 rounded-lg border border-[var(--color-sky-200)]/40 bg-[var(--color-sky-50)] text-[var(--color-ink)] font-body text-sm focus:outline-none focus:border-[var(--color-sky)] transition-colors duration-200"
+
+const labelClass =
+  "block font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-sky)] mb-2"
+
 export default function ContactForm() {
   const searchParams = useSearchParams()
   const [form, setForm] = useState<FormState>(initialState)
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
+  // URL param pre-population — DO NOT MODIFY
   useEffect(() => {
     const destination = searchParams.get("destination")
     const type = searchParams.get("type")
@@ -85,16 +95,10 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="text-center py-16">
-        <p
-          className="text-5xl font-light text-[#1C3F6E] mb-4"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          You're on Cameron's radar.
+        <p className="font-display text-4xl md:text-5xl font-semibold text-[var(--color-ink)] mb-4">
+          You&apos;re on Cameron&apos;s radar.
         </p>
-        <p
-          className="text-[#5B7FA6] text-lg"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
+        <p className="font-body text-lg text-[var(--color-muted)]">
           Expect to hear back within 24–48 hours.
         </p>
       </div>
@@ -102,88 +106,65 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form onSubmit={handleSubmit} className="space-y-8">
       {/* Cameron header */}
-      <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-[#D8E8F8] flex items-center justify-center">
-          <svg
-            className="w-6 h-6 text-[#4A90D9]"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-            />
+      <div className="flex items-center gap-4 mb-2">
+        <div className="w-12 h-12 rounded-full bg-[var(--color-sky-100)] flex items-center justify-center">
+          <svg className="w-6 h-6 text-[var(--color-sky)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </div>
         <div>
-          <p className="text-xs tracking-widest uppercase text-[#4A90D9]">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-sky)]">
             Cameron
           </p>
-          <p
-            className="text-xl font-light text-[#1C3F6E]"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
+          <p className="font-display text-xl font-medium text-[var(--color-ink)]">
             Hey — where have you been dreaming of going?
           </p>
         </div>
       </div>
 
-      {/* Destinations — top of form */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Destinations + When */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Destination(s)
-          </label>
+          <label className={labelClass}>Destination(s)</label>
           <input
             type="text"
             name="destinations"
             value={form.destinations}
             onChange={handleChange}
             placeholder="Caribbean, Europe, open to ideas..."
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
+            className={inputClass}
           />
         </div>
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            When Are You Thinking?
-          </label>
+          <label className={labelClass}>When Are You Thinking?</label>
           <input
             type="text"
             name="when"
             value={form.when}
             onChange={handleChange}
-            placeholder="Summer 2025, flexible..."
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
+            placeholder="Summer 2026, flexible..."
+            className={inputClass}
           />
         </div>
       </div>
 
       {/* Trip type chips */}
       <div>
-        <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-3">
-          Type of Trip
-        </label>
+        <label className={labelClass}>Type of Trip</label>
         <TripTypeChips
           selected={form.tripType}
           onChange={(val) => setForm((prev) => ({ ...prev, tripType: val }))}
         />
       </div>
 
-      <div className="border-t border-[#D8E8F8]" />
+      <div className="divider" />
 
-      {/* Name and contact */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Name + Contact */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Your Name
-          </label>
+          <label className={labelClass}>Your Name</label>
           <input
             type="text"
             name="name"
@@ -191,14 +172,11 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="First name is fine"
             required
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
+            className={inputClass}
           />
         </div>
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Best Way To Reach You
-          </label>
+          <label className={labelClass}>Best Way To Reach You</label>
           <input
             type="text"
             name="contact"
@@ -206,25 +184,16 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Email or phone"
             required
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
+            className={inputClass}
           />
         </div>
       </div>
 
-      {/* Travelers, budget, passport */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Travelers, Budget, Passport */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Travelers
-          </label>
-          <select
-            name="travelers"
-            value={form.travelers}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-[#F0F6FF] text-[#1C3F6E] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
+          <label className={labelClass}>Travelers</label>
+          <select name="travelers" value={form.travelers} onChange={handleChange} className={selectClass}>
             <option value="">Select...</option>
             <option>Just me</option>
             <option>2 people</option>
@@ -234,16 +203,8 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Budget Per Person
-          </label>
-          <select
-            name="budget"
-            value={form.budget}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-[#F0F6FF] text-[#1C3F6E] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
+          <label className={labelClass}>Budget Per Person</label>
+          <select name="budget" value={form.budget} onChange={handleChange} className={selectClass}>
             <option value="">Select...</option>
             <option>Under $1,000</option>
             <option>$1,000 – $2,500</option>
@@ -253,16 +214,8 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-            Valid Passport?
-          </label>
-          <select
-            name="passport"
-            value={form.passport}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-[#D8E8F8] bg-[#F0F6FF] text-[#1C3F6E] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
+          <label className={labelClass}>Valid Passport?</label>
+          <select name="passport" value={form.passport} onChange={handleChange} className={selectClass}>
             <option value="">Select...</option>
             <option>Yes</option>
             <option>No</option>
@@ -273,42 +226,33 @@ export default function ContactForm() {
 
       {/* Notes */}
       <div>
-        <label className="block text-xs tracking-widest uppercase text-[#4A90D9] mb-2">
-          Anything Else Cameron Should Know?
-        </label>
+        <label className={labelClass}>Anything Else Cameron Should Know?</label>
         <textarea
           name="notes"
           value={form.notes}
           onChange={handleChange}
           placeholder="Anniversary trip, bucket list, dietary needs, budget details..."
           rows={5}
-          className="w-full px-4 py-3 border border-[#D8E8F8] bg-transparent text-[#1C3F6E] placeholder-[#8BACC8] focus:outline-none focus:border-[#4A90D9] transition-colors duration-200 resize-none"
-          style={{ fontFamily: "var(--font-jost)" }}
+          className={`${inputClass} resize-none`}
         />
       </div>
 
       {/* Submit */}
-      <div className="flex items-center justify-between">
-        <p
-          className="text-sm text-[#4A90D9] italic"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="font-body text-sm text-[var(--color-sky)] italic">
           Cameron responds within 24–48 hours.
         </p>
         <button
           type="submit"
           disabled={status === "loading"}
-          className="px-10 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200 disabled:opacity-50"
+          className="btn-sky px-8 py-3.5 rounded-full text-sm font-semibold font-body disabled:opacity-50"
         >
           {status === "loading" ? "Sending..." : "Send To Cameron →"}
         </button>
       </div>
 
       {status === "error" && (
-        <p
-          className="text-red-500 text-sm text-center"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
+        <p className="font-body text-red-500 text-sm text-center">
           Something went wrong. Please try again or reach out directly.
         </p>
       )}

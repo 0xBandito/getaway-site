@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!destination) return {}
 
   return {
-    title: `${destination.name} Travel | Getaway`,
+    title: `${destination.name} Travel | Travel With Cameron`,
     description: destination.description,
   }
 }
@@ -40,11 +40,11 @@ export default async function DestinationPage({
       <DestinationHero
         name={destination.name}
         tagline={destination.tagline}
-        searchQuery={destination.searchQuery}
+        slug={slug}
         contactChips={destination.contactChips}
       />
       <DestinationHighlights highlights={destination.highlights} />
-      <DestinationGallery searchQuery={destination.searchQuery} />
+      <DestinationGallery slug={slug} />
       <DestinationDeals
         deals={destination.deals}
         contactChips={destination.contactChips}

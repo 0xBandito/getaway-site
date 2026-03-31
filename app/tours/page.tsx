@@ -2,7 +2,7 @@ import Link from "next/link"
 import ImageCard from "@/components/ui/ImageCard"
 
 export const metadata = {
-  title: "Tours | Getaway",
+  title: "Tours | Travel With Cameron",
   description:
     "Guided tours and curated travel experiences planned by Cameron.",
 }
@@ -78,69 +78,61 @@ const tours = [
 
 export default function ToursPage() {
   return (
-    <section className="min-h-screen bg-[#F0F6FF]">
+    <section className="min-h-screen">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
-          Guided Experiences
-        </p>
-        <h1
-          className="text-5xl md:text-7xl font-light text-[#1C3F6E] mb-6"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Tours
-        </h1>
-        <p
-          className="text-lg text-[#5B7FA6] max-w-2xl"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
-          Curated multi-destination experiences built around the best each
-          region has to offer. Every tour is customizable — Cameron will
-          adjust any itinerary to fit your travel style and budget.
-        </p>
+      <div className="bg-sky-wash">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+            Guided Experiences
+          </p>
+          <h1 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-6">
+            Tours
+          </h1>
+          <p className="font-body text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">
+            Curated multi-destination experiences built around the best each
+            region has to offer. Every tour is customizable — Cameron will
+            adjust any itinerary to fit your <span className="font-display italic font-medium text-[var(--color-sky)]">travel style</span> and budget.
+          </p>
+        </div>
       </div>
 
       {/* Tours grid */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tours.map((tour, index) => (
-            <ImageCard
-              key={index}
-              index={index}
-              searchQuery={tour.searchQuery}
-              title={tour.title}
-              subtitle={tour.destinations.join(" → ")}
-              tag={tour.tag}
-              price={tour.price}
-              contactUrl={`/contact?destination=${encodeURIComponent(tour.title)}&type=Tour`}
-            />
-          ))}
+      <div className="bg-cream-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tours.map((tour, index) => (
+              <ImageCard
+                key={index}
+                index={index}
+                searchQuery={tour.searchQuery}
+                title={tour.title}
+                subtitle={tour.destinations.join(" → ")}
+                tag={tour.tag}
+                price={tour.price}
+                contactUrl={`/contact?destination=${encodeURIComponent(tour.title)}&type=Tour`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* CTA */}
-      <div className="bg-[#1C3F6E] py-24">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-6">
-            Don't See What You're Looking For?
+      <div className="bg-[var(--color-ink)] py-24">
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-6">
+            Don&apos;t See What You&apos;re Looking For?
           </p>
-          <h2
-            className="text-4xl md:text-6xl font-light text-white mb-6"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            Every tour is customizable.
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6">
+            Every tour is <span className="font-display italic font-medium text-[var(--color-sky)]">customizable</span>.
           </h2>
-          <p
-            className="text-[#8BACC8] mb-10 leading-relaxed"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
+          <p className="font-body text-[var(--color-muted)] mb-10 leading-relaxed">
             Tell Cameron where you want to go and what kind of experience
-            you're after. Every itinerary can be adjusted, extended, or
+            you&apos;re after. Every itinerary can be adjusted, extended, or
             built from scratch.
           </p>
           <Link
             href="/contact?type=Tour"
-            className="inline-block px-10 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
+            className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body inline-block"
           >
             Build My Tour
           </Link>

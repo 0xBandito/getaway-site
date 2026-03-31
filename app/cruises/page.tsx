@@ -2,7 +2,7 @@ import Link from "next/link"
 import ImageCard from "@/components/ui/ImageCard"
 
 export const metadata = {
-  title: "Cruises | Getaway",
+  title: "Cruises | Travel With Cameron",
   description:
     "Cruise planning made personal. Caribbean sailings, Mediterranean voyages, and everything in between.",
 }
@@ -95,39 +95,32 @@ const itineraries = [
 
 export default function CruisesPage() {
   return (
-    <section className="min-h-screen bg-[#F0F6FF]">
+    <section className="min-h-screen">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
-          Set Sail
-        </p>
-        <h1
-          className="text-5xl md:text-7xl font-light text-[#1C3F6E] mb-6"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Cruises
-        </h1>
-        <p
-          className="text-lg text-[#5B7FA6] max-w-2xl"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
-          One price. Multiple destinations. Zero repacking. Cameron will
-          find the right ship, the right itinerary, and the right cabin
-          for you.
-        </p>
+      <div className="bg-sky-wash">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+            Set Sail
+          </p>
+          <h1 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-6">
+            Cruises
+          </h1>
+          <p className="font-body text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">
+            One price. Multiple destinations. Zero repacking. Cameron will
+            find the right ship, the right itinerary, and the right cabin
+            for <span className="font-display italic font-medium text-[var(--color-sky)]">you</span>.
+          </p>
+        </div>
       </div>
 
       {/* Why cruise */}
-      <div className="bg-[#FAF7F2] py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
+      <div className="bg-cream-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
             Why Cruise
           </p>
-          <h2
-            className="text-4xl font-light text-[#1C3F6E] mb-12"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            Everything included. Nothing to figure out.
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-12">
+            Everything included. <span className="font-display italic font-medium text-[var(--color-sky)]">Nothing</span> to figure out.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -144,22 +137,14 @@ export default function CruisesPage() {
                 body: "From budget-friendly Caribbean sailings to luxury Mediterranean voyages — there's a cruise for every traveler.",
               },
             ].map((item) => (
-              <div key={item.title} className="flex gap-4">
-                <span className="text-[#4A90D9] mt-1 text-lg">→</span>
-                <div>
-                  <p
-                    className="font-medium text-[#1C3F6E] mb-2"
-                    style={{ fontFamily: "var(--font-jost)" }}
-                  >
-                    {item.title}
-                  </p>
-                  <p
-                    className="text-sm text-[#5B7FA6] leading-relaxed"
-                    style={{ fontFamily: "var(--font-jost)" }}
-                  >
-                    {item.body}
-                  </p>
-                </div>
+              <div key={item.title} className="rounded-2xl border border-[var(--color-sky-200)]/30 shadow-sm hover:shadow-md card-lift p-6">
+                <span className="text-[var(--color-sky)] mt-1 text-lg">→</span>
+                <p className="font-body font-semibold text-[var(--color-ink)] mb-2 mt-3">
+                  {item.title}
+                </p>
+                <p className="font-body text-sm text-[var(--color-muted)] leading-relaxed">
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>
@@ -167,43 +152,39 @@ export default function CruisesPage() {
       </div>
 
       {/* Featured itineraries with images */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
-          Popular Itineraries
-        </p>
-        <h2
-          className="text-4xl font-light text-[#1C3F6E] mb-12"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Where Do You Want To Sail?
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {itineraries.map((itinerary, index) => (
-            <ImageCard
-              key={index}
-              index={index}
-              searchQuery={itinerary.searchQuery}
-              title={itinerary.title}
-              subtitle={itinerary.ports.join(" → ")}
-              tag={itinerary.duration}
-              price={itinerary.price}
-              contactUrl={`/contact?destination=${encodeURIComponent(itinerary.title)}&type=Cruise`}
-            />
-          ))}
+      <div className="bg-cloud-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+            Popular Itineraries
+          </p>
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-12">
+            Where Do You Want To <span className="font-display italic font-medium text-[var(--color-sky)]">Sail</span>?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {itineraries.map((itinerary, index) => (
+              <ImageCard
+                key={index}
+                index={index}
+                searchQuery={itinerary.searchQuery}
+                title={itinerary.title}
+                subtitle={itinerary.ports.join(" → ")}
+                tag={itinerary.duration}
+                price={itinerary.price}
+                contactUrl={`/contact?destination=${encodeURIComponent(itinerary.title)}&type=Cruise`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Cruise lines with images */}
-      <div className="bg-[#FAF7F2] py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
+      <div className="bg-cream-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
             Cruise Lines
           </p>
-          <h2
-            className="text-4xl font-light text-[#1C3F6E] mb-12"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            Which Line Is Right For You?
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-12">
+            Which Line Is <span className="font-display italic font-medium text-[var(--color-sky)]">Right</span> For You?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cruiseLines.map((line, index) => (
@@ -222,27 +203,21 @@ export default function CruisesPage() {
       </div>
 
       {/* CTA */}
-      <div className="bg-[#1C3F6E] py-24">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-6">
+      <div className="bg-[var(--color-ink)] py-24">
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-6">
             Ready To Sail
           </p>
-          <h2
-            className="text-4xl md:text-6xl font-light text-white mb-6"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            Let Cameron find your perfect cruise.
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6">
+            Let Cameron find your <span className="font-display italic font-medium text-[var(--color-sky)]">perfect cruise</span>.
           </h2>
-          <p
-            className="text-[#8BACC8] mb-10"
-            style={{ fontFamily: "var(--font-jost)" }}
-          >
+          <p className="font-body text-[var(--color-muted)] mb-10 leading-relaxed">
             Tell Cameron your budget, travel dates, and what kind of
-            experience you're looking for. Hear back within 24–48 hours.
+            experience you&apos;re looking for. Hear back within 24–48 hours.
           </p>
           <Link
             href="/contact?type=Cruise"
-            className="inline-block px-10 py-4 bg-[#4A90D9] text-white text-sm tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
+            className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body inline-block"
           >
             Plan My Cruise
           </Link>

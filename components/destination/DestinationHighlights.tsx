@@ -4,15 +4,12 @@ type Props = {
 
 export default function DestinationHighlights({ highlights }: Props) {
   return (
-    <section className="bg-[#FAF7F2] py-20">
+    <section className="bg-cream-gradient py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
+        <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
           Need To Know
         </p>
-        <h2
-          className="text-4xl md:text-5xl font-light text-[#1C3F6E] mb-12"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
+        <h2 className="font-display text-4xl md:text-5xl font-light text-[var(--color-ink)] mb-12">
           What To Expect
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -21,24 +18,18 @@ export default function DestinationHighlights({ highlights }: Props) {
             return (
               <div
                 key={index}
-                className="flex gap-6 p-6 bg-white rounded-2xl border border-[#D8E8F8] hover:shadow-md transition-shadow duration-300"
+                className="card-lift flex gap-6 p-6 bg-white rounded-xl border border-[var(--color-sky-200)]"
               >
-                <div className="shrink-0 w-10 h-10 rounded-full bg-[#F0F6FF] flex items-center justify-center">
-                  <span className="text-[#4A90D9] text-sm font-light">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-[var(--color-cloud)] flex items-center justify-center">
+                  <span className="text-[var(--color-sky)] text-sm font-light">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <div>
-                  <p
-                    className="text-xs tracking-[0.15em] uppercase text-[#4A90D9] mb-1"
-                    style={{ fontFamily: "var(--font-jost)" }}
-                  >
+                  <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-sky)] mb-1">
                     {label}
                   </p>
-                  <p
-                    className="text-[#1C3F6E] leading-relaxed"
-                    style={{ fontFamily: "var(--font-jost)" }}
-                  >
+                  <p className="font-body text-base leading-[1.7] text-[var(--color-ink)]">
                     {detail || highlight}
                   </p>
                 </div>

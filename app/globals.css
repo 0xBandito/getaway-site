@@ -1,36 +1,226 @@
 @import "tailwindcss";
 
+/* =============================================
+   DESIGN TOKENS
+   ============================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-sky: #4a90d9;
-  --color-sky-hover: #3a7bc8;
-  --color-deep: #1c3f6e;
-  --color-mist: #f0f6ff;
-  --color-cream: #faf7f2;
-  --color-slate: #5b7fa6;
-  --color-cloud: #d8e8f8;
-  --color-cloud-cream: #ede5d8;
+  --background: #F8FBFE;
+  --foreground: #1C2B36;
+
+  /* Primary palette */
+  --color-sky: #4A9ACF;
+  --color-sky-hover: #3A87BA;
+  --color-ink: #1C2B36;
+  --color-cloud: #F8FBFE;
+  --color-cream: #F7F3EE;
+  --color-muted: #6B7F8E;
+  --color-sand: #D9D0C3;
+  --color-warm: #EDE8E1;
+
+  /* Sunset accents (from hero photo) */
+  --color-sunset: #E8A87C;
+  --color-sunset-soft: #F0C9A8;
+
+  /* Sky scale */
+  --color-sky-50: #F0F7FC;
+  --color-sky-100: #E1EFF9;
+  --color-sky-200: #C3DFF3;
+  --color-sky-300: #A0CCE9;
+  --color-sky-400: #74B5DD;
+  --color-sky-500: #4A9ACF;
+  --color-sky-600: #3178AB;
+  --color-sky-700: #245A80;
+  --color-sky-800: #183D56;
+  --color-sky-900: #0C1F2C;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-instrument);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* =============================================
+   BASE STYLES
+   ============================================= */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* =============================================
+   SECTION BACKGROUNDS — Reduce white space
+   ============================================= */
+.bg-cloud-gradient {
+  background:
+    radial-gradient(ellipse 70% 50% at 25% 80%, rgba(74, 154, 207, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 75% 20%, rgba(74, 154, 207, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(247, 243, 238, 0.4) 0%, transparent 70%),
+    var(--color-cloud);
+}
+
+.bg-cream-gradient {
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 70%, rgba(232, 168, 124, 0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 70% 30%, rgba(247, 243, 238, 0.5) 0%, transparent 60%),
+    var(--color-cream);
+}
+
+.bg-sky-wash {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(74, 154, 207, 0.04) 0%, transparent 70%),
+    var(--color-sky-50);
+}
+
+.sky-dark {
+  background: linear-gradient(180deg, #1A2F3E 0%, #1E3A4F 100%);
+}
+
+/* =============================================
+   UTILITY CLASSES
+   ============================================= */
+
+/* Dividers */
+.divider {
+  height: 1px;
+  background: var(--color-sky-200);
+  opacity: 0.5;
+}
+.divider-warm {
+  height: 1px;
+  background: var(--color-sand);
+  opacity: 0.6;
+}
+
+/* Link underline animation */
+.link-hover {
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-ink);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-hover:hover::after { width: 100%; }
+.link-hover:focus-visible { outline: 2px solid var(--color-sky); outline-offset: 4px; }
+
+/* Buttons */
+.btn-sky {
+  background: var(--color-sky);
+  color: #fff;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+.btn-sky:hover { transform: translateY(-1px); opacity: 0.88; }
+.btn-sky:focus-visible { outline: 2px solid var(--color-sky); outline-offset: 3px; }
+.btn-sky:active { transform: translateY(0); opacity: 1; }
+
+.btn-dark {
+  background: var(--color-ink);
+  color: #fff;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+.btn-dark:hover { transform: translateY(-1px); opacity: 0.88; }
+.btn-dark:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }
+.btn-dark:active { transform: translateY(0); opacity: 1; }
+
+.btn-outline {
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+  background: transparent;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease;
+}
+.btn-outline:hover { background: var(--color-ink); color: #fff; transform: translateY(-1px); }
+.btn-outline:focus-visible { outline: 2px solid var(--color-sky); outline-offset: 3px; }
+.btn-outline:active { transform: translateY(0); }
+
+.btn-outline-white {
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff;
+  background: transparent;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.btn-outline-white:hover { background: #fff; color: var(--color-ink); border-color: #fff; transform: translateY(-1px); }
+.btn-outline-white:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.btn-outline-white:active { transform: translateY(0); }
+
+/* Card interactions */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover { transform: translateY(-4px); }
+.card-lift:active { transform: translateY(-1px); }
+
+/* Image gradient overlay */
+.img-overlay {
+  position: relative;
+}
+.img-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 43, 54, 0.5) 0%, rgba(28, 43, 54, 0.08) 50%, transparent 100%);
+  border-radius: inherit;
+}
+
+/* Panoramic image */
+.pano-img { border-radius: 12px; overflow: hidden; }
+
+/* Arrow animation */
+.arrow-move svg { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.arrow-move:hover svg { transform: translate(3px, -3px); }
+
+/* Search bar */
+.search-bar {
+  border: 1px solid var(--color-sky-200);
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+.search-bar:focus-within { border-color: var(--color-sky); }
+
+/* =============================================
+   SCROLL REVEAL ANIMATION
+   ============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 0.8; }
 }
 
 @keyframes ken-burns {
@@ -45,30 +235,6 @@ body {
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  33% {
-    transform: translateY(-30px) translateX(15px);
-  }
-  66% {
-    transform: translateY(15px) translateX(-10px);
-  }
-}
-
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
 .animate-ken-burns {
   animation: none;
 }
@@ -77,4 +243,24 @@ body {
   .animate-ken-burns {
     animation: ken-burns 20s ease-in-out infinite;
   }
+}
+
+/* =============================================
+   TYPOGRAPHY UTILITIES
+   ============================================= */
+.font-display {
+  font-family: var(--font-lora), 'Lora', Georgia, serif;
+}
+.font-body {
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
+}
+
+/* =============================================
+   SERVICE TEXT (Explore/Plan/Relax section)
+   ============================================= */
+.service-text {
+  font-weight: 700;
+  font-size: clamp(3.5rem, 10vw, 12rem);
+  line-height: 105%;
+  letter-spacing: -0.03em;
 }

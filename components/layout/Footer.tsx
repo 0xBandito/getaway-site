@@ -1,10 +1,13 @@
 import Link from "next/link"
 
-const links = [
+const exploreLinks = [
   { label: "Destinations", href: "/destinations" },
   { label: "Cruises", href: "/cruises" },
   { label: "Tours", href: "/tours" },
   { label: "Promotions", href: "/promotions" },
+]
+
+const moreLinks = [
   { label: "Trip Reel", href: "/trip-reel" },
   { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
@@ -13,57 +16,91 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1C3F6E] text-[#8BACC8]">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-[var(--color-sky-50)] border-t border-[var(--color-sky-200)]/30">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <p className="text-xl font-semibold tracking-widest text-white uppercase mb-4">
-              Getaway
-            </p>
-            <p className="text-sm leading-relaxed">
+            <Link href="/" className="font-body text-lg font-bold text-[var(--color-ink)]">
+              Travel With{" "}
+              <span className="font-display italic font-medium text-[var(--color-sky)]">
+                Cameron
+              </span>
+            </Link>
+            <p className="font-body text-sm leading-[1.7] text-[var(--color-muted)] mt-3 max-w-xs">
               Personalized travel experiences crafted around you. Let Cameron
               handle every detail so you can focus on the memories.
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Explore */}
           <div>
-            <p className="text-xs tracking-widest uppercase text-white mb-4">
+            <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
               Explore
             </p>
-            <div className="flex flex-col gap-3">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm hover:text-white transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
+            <ul className="space-y-3">
+              {exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-body text-sm text-[var(--color-ink)]/70 transition-opacity duration-200 hover:opacity-60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+
+          {/* More */}
+          <div>
+            <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+              More
+            </p>
+            <ul className="space-y-3">
+              {moreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-body text-sm text-[var(--color-ink)]/70 transition-opacity duration-200 hover:opacity-60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <p className="text-xs tracking-widest uppercase text-white mb-4">
+            <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
               Get In Touch
             </p>
-            <div className="flex flex-col gap-3 text-sm">
-              <p>Ready to start planning?</p>
-              <Link
-                href="/contact"
-                className="inline-block px-5 py-3 bg-[#4A90D9] text-white text-sm tracking-wide text-center hover:bg-[#3a7bc8] transition-colors duration-200"
-              >
-                Plan Your Trip
-              </Link>
-            </div>
+            <p className="font-body text-sm text-[var(--color-ink)]/70 mb-4">
+              Ready to start planning your dream trip?
+            </p>
+            <Link
+              href="/contact"
+              className="btn-sky inline-block px-6 py-2.5 rounded-full text-sm font-semibold font-body"
+            >
+              Plan Your Trip
+            </Link>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#2A4F7E] text-xs text-center">
-          © {new Date().getFullYear()} Getaway. All rights reserved.
+        <div className="divider mb-8" />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-body text-xs text-[var(--color-muted)]">
+            © {new Date().getFullYear()} Travel With Cameron. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link href="/faq" className="font-body text-xs text-[var(--color-muted)] transition-opacity duration-200 hover:opacity-60">
+              FAQ
+            </Link>
+            <Link href="/about" className="font-body text-xs text-[var(--color-muted)] transition-opacity duration-200 hover:opacity-60">
+              About
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

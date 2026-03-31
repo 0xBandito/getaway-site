@@ -1,13 +1,12 @@
 import { destinations } from "@/lib/destinations"
-import { getHeroImage } from "@/lib/getHeroImage"
-import HomeClient from "@/components/home/HomeClient"
+import DestinationsClient from "@/components/destination/DestinationsClient"
 
-export default async function HomePage() {
-  const [heroImage] = await Promise.all([
-    getHeroImage(),
-  ])
+export const metadata = {
+  title: "Destinations | Travel With Cameron",
+  description:
+    "Explore curated travel destinations across the Caribbean, Europe, Asia, Africa, and beyond. Find your perfect getaway.",
+}
 
-  const featured = destinations.slice(0, 6)
-
-  return <HomeClient heroImage={heroImage} featured={featured} />
+export default function DestinationsPage() {
+  return <DestinationsClient destinations={destinations} />
 }

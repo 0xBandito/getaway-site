@@ -1,23 +1,24 @@
 import type { Metadata } from "next"
-import { Cormorant_Garamond, Jost } from "next/font/google"
+import { Lora, Instrument_Sans } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 
-const cormorant = Cormorant_Garamond({
+const lora = Lora({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-lora",
 })
 
-const jost = Jost({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-jost",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-instrument",
 })
 
 export const metadata: Metadata = {
-  title: "Getaway | Personalized Travel Planning",
+  title: "Travel With Cameron — Personalized Travel Planning",
   description:
     "Personalized travel experiences crafted around you. Let Cameron plan your dream trip to the Caribbean, Europe, Maldives, and beyond.",
 }
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${jost.variable} bg-[#F0F6FF] text-[#1C3F6E] antialiased`}
+        className={`${lora.variable} ${instrumentSans.variable} bg-[#F8FBFE] text-[#1C2B36] antialiased`}
       >
         <Navbar />
         <main className="pt-16">{children}</main>

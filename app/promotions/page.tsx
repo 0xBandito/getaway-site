@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Promotions | Getaway",
+  title: "Promotions | Travel With Cameron",
   description:
     "Current travel deals and promotions. Limited time offers on cruises, all-inclusive resorts, and international trips.",
 }
@@ -18,7 +18,7 @@ const promotions = [
   },
   {
     tag: "Best Seller",
-    title: "Cancún All-Inclusive Package",
+    title: "Cancun All-Inclusive Package",
     description:
       "Beachfront resort, all meals and drinks, airport transfers included. The most popular trip we book.",
     price: "From $799/person",
@@ -65,72 +65,62 @@ const promotions = [
 
 export default function PromotionsPage() {
   return (
-    <section className="min-h-screen bg-[#F0F6FF]">
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <p className="text-xs tracking-widest uppercase text-[#4A90D9] mb-4">
-          Current Offers
-        </p>
-        <h1
-          className="text-5xl md:text-7xl font-light text-[#1C3F6E] mb-6"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Promotions
-        </h1>
-        <p
-          className="text-lg text-[#5B7FA6] max-w-2xl mb-16"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
-          These deals move fast. If something catches your eye, reach out to
-          Cameron before it's gone.
-        </p>
+    <section className="min-h-screen">
+      {/* Header */}
+      <div className="bg-sky-wash">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
+            Current Offers
+          </p>
+          <h1 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-6">
+            Promotions
+          </h1>
+          <p className="font-body text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed mb-16">
+            These deals move fast. If something catches your eye, reach out to
+            Cameron before it&apos;s <span className="font-display italic font-medium text-[var(--color-sky)]">gone</span>.
+          </p>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {promotions.map((promo, index) => (
-            <div
-              key={index}
-              className="bg-white border border-[#D8E8F8] p-8 flex flex-col justify-between"
-            >
-              <div>
-                <span className="inline-block text-xs tracking-widest uppercase text-[#4A90D9] bg-[#F0F6FF] px-3 py-1 mb-4">
-                  {promo.tag}
-                </span>
-                <h2
-                  className="text-2xl font-light text-[#1C3F6E] mb-4"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
-                >
-                  {promo.title}
-                </h2>
-                <p
-                  className="text-sm text-[#5B7FA6] leading-relaxed mb-6"
-                  style={{ fontFamily: "var(--font-jost)" }}
-                >
-                  {promo.description}
-                </p>
-              </div>
-              <div>
-                <div className="border-t border-[#D8E8F8] pt-6 mb-6">
-                  <p
-                    className="text-2xl font-light text-[#1C3F6E] mb-1"
-                    style={{ fontFamily: "var(--font-cormorant)" }}
-                  >
-                    {promo.price}
-                  </p>
-                  <p
-                    className="text-xs text-[#4A90D9] tracking-wide"
-                    style={{ fontFamily: "var(--font-jost)" }}
-                  >
-                    {promo.expires}
+      {/* Promotions grid */}
+      <div className="bg-cream-gradient">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {promotions.map((promo, index) => (
+              <div
+                key={index}
+                className="rounded-2xl border border-[var(--color-sky-200)]/30 shadow-sm hover:shadow-md card-lift bg-white/80 backdrop-blur-sm p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="inline-block font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-sunset)] bg-[var(--color-sunset)]/10 px-3 py-1 rounded-full mb-4">
+                    {promo.tag}
+                  </span>
+                  <h2 className="font-body text-xl font-bold tracking-tight text-[var(--color-ink)] mb-4">
+                    {promo.title}
+                  </h2>
+                  <p className="font-body text-sm text-[var(--color-muted)] leading-relaxed mb-6">
+                    {promo.description}
                   </p>
                 </div>
-                <Link
-                  href={`/contact?destination=${encodeURIComponent(promo.title)}&type=Resort`}
-                  className="block text-center px-6 py-3 bg-[#4A90D9] text-white text-xs tracking-widest uppercase hover:bg-[#3a7bc8] transition-colors duration-200"
-                >
-                  Claim This Deal
-                </Link>
+                <div>
+                  <div className="border-t border-[var(--color-sky-200)]/30 pt-6 mb-6">
+                    <p className="font-body text-2xl font-bold text-[var(--color-ink)] mb-1">
+                      {promo.price}
+                    </p>
+                    <p className="font-body text-xs text-[var(--color-sky)] tracking-wide">
+                      {promo.expires}
+                    </p>
+                  </div>
+                  <Link
+                    href={`/contact?destination=${encodeURIComponent(promo.title)}&type=Resort`}
+                    className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body block text-center"
+                  >
+                    Claim This Deal
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

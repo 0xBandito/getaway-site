@@ -13,12 +13,11 @@ export default function TripTypeChips({ selected, onChange }: Props) {
           key={chip}
           type="button"
           onClick={() => onChange(selected === chip ? "" : chip)}
-          className={`px-5 py-2.5 rounded-full text-sm border transition-all duration-200 ${
+          className={`px-5 py-2.5 rounded-full text-sm font-body font-medium transition-all duration-200 ${
             selected === chip
-              ? "bg-[#4A90D9] border-[#4A90D9] text-white"
-              : "bg-transparent border-[#D8E8F8] text-[#5B7FA6] hover:border-[#4A90D9] hover:text-[#4A90D9]"
+              ? "btn-sky"
+              : "border border-[var(--color-sky-200)]/40 text-[var(--color-muted)] hover:border-[var(--color-sky)] hover:text-[var(--color-sky)] bg-transparent"
           }`}
-          style={{ fontFamily: "var(--font-jost)" }}
         >
           {chip}
         </button>
