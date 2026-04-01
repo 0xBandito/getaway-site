@@ -45,7 +45,7 @@ export default function ParallaxHero() {
             trigger: scene,
             start: "0% 0%",
             end: "50% 0%",
-            scrub: 5, // Very heavy — the plane window barely moves at first
+            scrub: 10, // Extremely heavy — glacial pace, really have to work for it
           },
         })
 
@@ -161,7 +161,7 @@ export default function ParallaxHero() {
 
   return (
     <div ref={parallaxRef}>
-      <section className="relative" style={{ height: "600vh" }}>
+      <section className="relative" style={{ height: "800vh" }}>
         <div
           className="sticky top-0 w-full overflow-hidden"
           style={{ height: "100vh" }}

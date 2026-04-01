@@ -16,8 +16,8 @@ const trips = [
   { src: "/images/trips/tulum_mexico3.jpg", location: "Tulum, Mexico", destination: "Mexico", rotate: "-rotate-1" },
   { src: "/images/trips/loscabos_mexico.jpg", location: "Los Cabos, Mexico", destination: "Mexico", rotate: "rotate-2" },
   // Egypt
-  { src: "/images/trips/cairo.jpeg", location: "Cairo, Egypt", destination: "Africa", rotate: "rotate-2" },
-  { src: "/images/trips/cairo2.jpeg", location: "Cairo, Egypt", destination: "Africa", rotate: "-rotate-2" },
+  { src: "/images/trips/cairo.JPEG", location: "Cairo, Egypt", destination: "Africa", rotate: "rotate-2" },
+  { src: "/images/trips/cairo2.JPEG", location: "Cairo, Egypt", destination: "Africa", rotate: "-rotate-2" },
   // Dubai, UAE
   { src: "/images/trips/dubai_uae.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "rotate-2" },
   { src: "/images/trips/dubai_uae2.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "-rotate-2" },
