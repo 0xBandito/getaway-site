@@ -21,6 +21,8 @@ const trips = [
   // Dubai, UAE
   { src: "/images/trips/dubai_uae.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "rotate-2" },
   { src: "/images/trips/dubai_uae2.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "-rotate-2" },
+  // Bail, Indoniesia
+  { src: "/images/trips/bali_indonesia.PNG", location: "Bali, Indonesia", destination: "Southeast Asia", rotate: "-rotate-2" },
   // Italy
   { src: "/images/trips/italy.jpg", location: "Italy", destination: "Europe", rotate: "rotate-1" },
   { src: "/images/trips/italy2.jpg", location: "Italy", destination: "Europe", rotate: "-rotate-1" },

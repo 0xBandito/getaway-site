@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function ParallaxHero() {
   const parallaxRef = useRef<HTMLDivElement>(null)
   const [mounted, setMounted] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(0)
 
-  const totalImages = 4
+  const totalImages = 2
   const allLoaded = imagesLoaded >= totalImages
 
   function handleImageLoad() {
@@ -17,6 +18,8 @@ export default function ParallaxHero() {
 
   useEffect(() => {
     setMounted(true)
+    // Scroll to top on page load/refresh
+    window.scrollTo(0, 0)
   }, [])
 
   useEffect(() => {
@@ -34,67 +37,117 @@ export default function ParallaxHero() {
       if (!container) return
 
       ctx = gsap.context(() => {
-        const tl = gsap.timeline({
+        const scene = container.querySelector("[data-scene]")
+
+        // REVEAL TIMELINE: Very heavy scrub at the start = glacially slow
+        const revealTl = gsap.timeline({
           scrollTrigger: {
-            trigger: container.querySelector("[data-scene]"),
+            trigger: scene,
             start: "0% 0%",
-            end: "100% 0%",
-            scrub: true,
+            end: "50% 0%",
+            scrub: 5, // Very heavy — the plane window barely moves at first
           },
         })
 
-        // Phase 1: Window photo scales up and fades (passing through the window)
-        tl.to("[data-layer='window']", {
-          scale: 2.5,
+        // Window scales through
+        revealTl.to("[data-layer='window']", {
+          scale: 3,
           opacity: 0,
-          ease: "none",
-          duration: 0.4,
+          ease: "power2.in",
+          duration: 0.5,
         })
 
-        // Phase 1b: Title fades out as we pass through
-        tl.to("[data-layer='title']", {
+        // Title fades out
+        revealTl.to("[data-layer='title']", {
           opacity: 0,
-          yPercent: -30,
-          ease: "none",
+          yPercent: -20,
+          scale: 0.95,
+          ease: "power1.in",
           duration: 0.3,
+        }, 0.05)
+
+        // Vignette fades
+        revealTl.to("[data-layer='vignette']", {
+          opacity: 0,
+          ease: "none",
+          duration: 0.5,
         }, 0)
 
-        // Phase 2: Clouds drift apart (split top and bottom)
-        tl.to("[data-layer='clouds-top']", {
-          yPercent: -80,
-          opacity: 0,
-          ease: "none",
-          duration: 0.5,
-        }, 0.25)
-
-        tl.to("[data-layer='clouds-bottom']", {
-          yPercent: 80,
-          opacity: 0,
-          ease: "none",
-          duration: 0.5,
-        }, 0.25)
-
-        // Phase 3: Destination zooms in slightly (arrival feel)
-        tl.fromTo("[data-layer='destination']", {
-          scale: 1.15,
+        // Light flash
+        revealTl.fromTo("[data-layer='flare']", {
           opacity: 0,
         }, {
-          scale: 1,
+          opacity: 0.3,
+          ease: "sine.inOut",
+          duration: 0.15,
+        }, 0.4)
+
+        // Destination fades in
+        revealTl.fromTo("[data-layer='destination']", {
+          scale: 1.08,
+          opacity: 0,
+        }, {
+          scale: 1.06,
           opacity: 1,
+          ease: "sine.inOut",
+          duration: 0.3,
+        }, 0.45)
+
+        // Flash dissolves
+        revealTl.to("[data-layer='flare']", {
+          opacity: 0,
+          ease: "sine.inOut",
+          duration: 0.3,
+        }, 0.55)
+
+        // MID TRANSITION: Scrub loosens up as destination appears
+        const midTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: scene,
+            start: "50% 0%",
+            end: "75% 0%",
+            scrub: 2, // Medium — speeding up
+          },
+        })
+
+        // Ken-burns drift
+        midTl.to("[data-layer='destination']", {
+          scale: 1.02,
           ease: "none",
           duration: 0.5,
-        }, 0.3)
+        })
 
-        // Phase 3b: Arrival text fades in
-        tl.fromTo("[data-layer='arrival-text']", {
+        // Arrival text fades in
+        midTl.fromTo("[data-layer='arrival-text']", {
+          opacity: 0,
+          yPercent: 30,
+        }, {
+          opacity: 1,
+          yPercent: 0,
+          ease: "power2.out",
+          duration: 0.4,
+        }, 0.1)
+
+        // POST-REVEAL: Normal speed, scroll feels free
+        const postTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: scene,
+            start: "75% 0%",
+            end: "100% 0%",
+            scrub: 0.3, // Light — back to normal
+          },
+        })
+
+        // CTA button slides in
+        postTl.fromTo("[data-layer='cta']", {
           opacity: 0,
           yPercent: 20,
         }, {
           opacity: 1,
           yPercent: 0,
-          ease: "none",
+          ease: "power2.out",
           duration: 0.3,
-        }, 0.6)
+        }, 0.4)
 
         ScrollTrigger.refresh()
       }, container)
@@ -108,49 +161,38 @@ export default function ParallaxHero() {
 
   return (
     <div ref={parallaxRef}>
-      <section className="relative" style={{ height: "280vh" }}>
+      <section className="relative" style={{ height: "600vh" }}>
         <div
           className="sticky top-0 w-full overflow-hidden"
           style={{ height: "100vh" }}
         >
-          {/* Loading state */}
-          {mounted && !allLoaded && (
-            <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[var(--color-cloud)]">
-              <div className="relative w-12 h-12 mb-6">
-                <div className="absolute inset-0 rounded-full border-2 border-[var(--color-sky-200)]" />
-                <div
-                  className="absolute inset-0 rounded-full border-2 border-t-[var(--color-sky)] animate-spin"
-                  style={{ animationDuration: "1s" }}
-                />
-              </div>
-              <p
-                className="font-body text-[var(--color-muted)] uppercase text-xs"
-                style={{ letterSpacing: "0.14em" }}
-              >
-                Loading your view...
-              </p>
+          {/* Loading state — always rendered to avoid hydration mismatch, hidden via CSS */}
+          <div
+            className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[var(--color-cloud)] transition-opacity duration-500"
+            style={{ opacity: allLoaded ? 0 : 1, pointerEvents: allLoaded ? "none" : "auto" }}
+          >
+            <div className="relative w-12 h-12 mb-6">
+              <div className="absolute inset-0 rounded-full border-2 border-[var(--color-sky-200)]" />
+              <div
+                className="absolute inset-0 rounded-full border-2 border-t-[var(--color-sky)] animate-spin"
+                style={{ animationDuration: "1s" }}
+              />
             </div>
-          )}
+            <p
+              className="font-body text-[var(--color-muted)] uppercase text-xs"
+              style={{ letterSpacing: "0.14em" }}
+            >
+              Loading your view...
+            </p>
+          </div>
 
           <div data-scene className="relative w-full h-full" style={{ background: "var(--color-cloud)" }}>
 
-            {/* Layer 0: Sky base (always visible, farthest back) */}
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/hero-layers/sky-base.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                sizes="100vw"
-                onLoad={handleImageLoad}
-              />
-            </div>
-
-            {/* Layer 1: Destination reveal (hidden initially, revealed by scroll) */}
+            {/* Layer 1: Destination reveal (hidden initially, revealed after flare) */}
             <div
               data-layer="destination"
-              className="absolute inset-0 z-[1]"
-              style={{ opacity: 0, willChange: "transform, opacity" }}
+              className="absolute z-[1]"
+              style={{ opacity: 0, willChange: "transform, opacity", inset: "-5%", width: "110%", height: "110%" }}
             >
               <Image
                 src="/images/hero-layers/destination.jpg"
@@ -160,59 +202,18 @@ export default function ParallaxHero() {
                 sizes="100vw"
                 onLoad={handleImageLoad}
               />
-              {/* Gradient overlay for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
             </div>
 
-            {/* Layer 2: Cloud layers (part as you scroll) */}
+            {/* Light flare overlay */}
             <div
-              data-layer="clouds-top"
-              className="absolute inset-0 z-[5]"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <Image
-                src="/images/hero-layers/clouds.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                style={{ objectPosition: "center bottom" }}
-                sizes="100vw"
-                onLoad={handleImageLoad}
-              />
-              {/* Fade bottom edge so it blends */}
-              <div
-                className="absolute bottom-0 left-0 right-0"
-                style={{
-                  height: "40%",
-                  background: "linear-gradient(to top, rgba(255,255,255,0.8) 0%, transparent 100%)",
-                }}
-              />
-            </div>
+              data-layer="flare"
+              className="absolute inset-0 z-[7] bg-white pointer-events-none"
+              style={{ opacity: 0 }}
+            />
 
-            <div
-              data-layer="clouds-bottom"
-              className="absolute inset-0 z-[6]"
-              style={{ willChange: "transform, opacity", top: "50%" }}
-            >
-              <Image
-                src="/images/hero-layers/clouds.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                style={{ objectPosition: "center top", transform: "scaleY(-1)" }}
-                sizes="100vw"
-              />
-              {/* Fade top edge */}
-              <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: "40%",
-                  background: "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, transparent 100%)",
-                }}
-              />
-            </div>
 
-            {/* Layer 3: Plane window photo (foreground, scales up and fades) */}
+            {/* Plane window photo (foreground) */}
             <div
               data-layer="window"
               className="absolute inset-0 z-10"
@@ -230,7 +231,16 @@ export default function ParallaxHero() {
               />
             </div>
 
-            {/* Layer 4: Title text (fades out as we pass through window) */}
+            {/* Vignette overlay on window for depth */}
+            <div
+              data-layer="vignette"
+              className="absolute inset-0 z-[11] pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse 60% 60% at 50% 50%, transparent 30%, rgba(0,0,0,0.4) 100%)",
+              }}
+            />
+
+            {/* Title text */}
             <div
               data-layer="title"
               className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
@@ -264,19 +274,17 @@ export default function ParallaxHero() {
               </p>
             </div>
 
-            {/* Layer 5: Arrival text (fades in over destination) */}
+            {/* Arrival text (fades in over destination) */}
             <div
               data-layer="arrival-text"
-              className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-[15vh] pointer-events-none"
+              className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-[20vh] pointer-events-none"
               style={{ opacity: 0, willChange: "transform, opacity" }}
             >
-              <p
-                className="font-body text-xs font-semibold tracking-widest uppercase text-white/60 mb-3"
-              >
+              <p className="font-body text-xs font-semibold tracking-widest uppercase text-white/60 mb-3">
                 Your destination awaits
               </p>
               <h2
-                className="font-body font-bold text-center text-white"
+                className="font-body font-bold text-center text-white mb-8"
                 style={{
                   fontSize: "clamp(1.8rem, 4vw, 4rem)",
                   letterSpacing: "-0.02em",
@@ -287,20 +295,34 @@ export default function ParallaxHero() {
               </h2>
             </div>
 
+            {/* CTA button (fades in after text) */}
+            <div
+              data-layer="cta"
+              className="absolute inset-0 z-20 flex items-end justify-center pb-[12vh]"
+              style={{ opacity: 0, willChange: "transform, opacity" }}
+            >
+              <Link
+                href="/contact?destination=Maldives"
+                className="btn-sky px-8 py-3.5 rounded-full text-sm font-semibold font-body shadow-lg shadow-black/20"
+              >
+                Plan This Trip
+              </Link>
+            </div>
+
           </div>
 
           {/* Bottom fade to page background */}
           <div
             className="absolute bottom-0 left-0 w-full pointer-events-none z-30"
             style={{
-              height: "25%",
-              background: "linear-gradient(to top, var(--color-cloud) 0%, rgba(248,251,254,0.5) 40%, transparent 100%)",
+              height: "20%",
+              background: "linear-gradient(to top, var(--color-cloud) 0%, rgba(248,251,254,0.4) 50%, transparent 100%)",
             }}
           />
 
-          {/* Scroll hint (only on initial view) */}
+          {/* Scroll hint */}
           {allLoaded && (
-            <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 pointer-events-none">
+            <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 pointer-events-none">
               <p
                 className="font-body text-white/40 uppercase"
                 style={{
