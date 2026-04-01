@@ -40,7 +40,7 @@ export const destinations: Destination[] = [
     continent: "North America",
     tagline: "White sand, blue water, zero agenda.",
     description:
-      "The Caribbean is the ultimate escape — 7,000 islands scattered across warm turquoise waters, each with its own personality. From the lush rainforests of St. Lucia to the party energy of Nassau, there's a version of the Caribbean for every kind of traveler.",
+      "The Caribbean is the ultimate escape: 7,000 islands scattered across warm turquoise waters, each with its own personality. From the lush rainforests of St. Lucia to the party energy of Nassau, there's a version of the Caribbean for every kind of traveler.",
     highlights: [
       "Best time to visit: December through April for dry season",
       "Top islands: St. Lucia, Turks & Caicos, Barbados, Aruba",
@@ -61,7 +61,7 @@ export const destinations: Destination[] = [
       {
         title: "All-Inclusive Aruba Escape",
         description:
-          "Five-star resort, all meals included, unlimited beach time. Aruba sits outside the hurricane belt — sunshine guaranteed.",
+          "Five-star resort, all meals included, unlimited beach time. Aruba sits outside the hurricane belt, so sunshine is guaranteed.",
         price: "From $1,499/person",
         duration: "5 nights",
       },
@@ -73,7 +73,7 @@ export const destinations: Destination[] = [
     continent: "North America",
     tagline: "Closer than you think. Better than you remember.",
     description:
-      "Mexico is one of the most diverse destinations on the planet. Pristine beaches in Cancún, ancient ruins in the Yucatán, world-class food in Mexico City — and all of it just a short flight from the US.",
+      "Mexico is one of the most diverse destinations on the planet. Pristine beaches in Cancún, ancient ruins in the Yucatán, world-class food in Mexico City, and all of it just a short flight from the US.",
     highlights: [
       "Best time to visit: November through April",
       "Top spots: Cancún, Tulum, Los Cabos, Mexico City, Playa del Carmen",
@@ -139,7 +139,7 @@ export const destinations: Destination[] = [
     continent: "Europe",
     tagline: "Sun-soaked coastlines and food you'll dream about.",
     description:
-      "The Mediterranean is a state of mind — slow mornings, long lunches, warm evenings by the water. From the Amalfi Coast to the Turkish Riviera, this region delivers beauty at every turn.",
+      "The Mediterranean is a state of mind: slow mornings, long lunches, warm evenings by the water. From the Amalfi Coast to the Turkish Riviera, this region delivers beauty at every turn.",
     highlights: [
       "Best time to visit: May through October",
       "Top spots: Amalfi Coast, Santorini, Dubrovnik, Montenegro, Turkish Riviera",
@@ -172,7 +172,7 @@ export const destinations: Destination[] = [
     continent: "North America",
     tagline: "The mainland's greatest escape.",
     description:
-      "Hawaii is America's paradise — volcanic peaks, rainforests, and beaches that look like they belong in a dream. Each island has its own character, from the energy of Oahu to the seclusion of Kauai.",
+      "Hawaii is America's paradise: volcanic peaks, rainforests, and beaches that look like they belong in a dream. Each island has its own character, from the energy of Oahu to the seclusion of Kauai.",
     highlights: [
       "Best time to visit: April through June, September through November",
       "Top islands: Maui, Oahu, Kauai, Big Island",
@@ -192,7 +192,7 @@ export const destinations: Destination[] = [
         duration: "6 nights",
       },
       {
-        title: "Island Hopper — Oahu & Maui",
+        title: "Island Hopper: Oahu & Maui",
         description:
           "Best of both worlds. Experience the energy of Honolulu and the serenity of Maui in one trip.",
         price: "From $1,899/person",
@@ -206,7 +206,7 @@ export const destinations: Destination[] = [
     continent: "Asia",
     tagline: "The most beautiful place on earth. Full stop.",
     description:
-      "The Maldives is the pinnacle of luxury travel — overwater bungalows, crystal-clear lagoons, and a level of seclusion that makes the real world disappear completely. This is the trip people save up for and never forget.",
+      "The Maldives is the pinnacle of luxury travel: overwater bungalows, crystal-clear lagoons, and a level of seclusion that makes the real world disappear completely. This is the trip people save up for and never forget.",
     highlights: [
       "Best time to visit: November through April",
       "Top atolls: North Malé, South Malé, Baa, Ari",
@@ -232,7 +232,7 @@ export const destinations: Destination[] = [
     continent: "Asia",
     tagline: "Ancient temples, street food, and beaches that cost next to nothing.",
     description:
-      "Southeast Asia is the ultimate adventure destination — impossibly cheap, endlessly fascinating, and packed with experiences you can't find anywhere else. Thailand, Bali, Vietnam, Cambodia — each country is a world of its own.",
+      "Southeast Asia is the ultimate adventure destination: impossibly cheap, endlessly fascinating, and packed with experiences you can't find anywhere else. Thailand, Bali, Vietnam, Cambodia. Each country is a world of its own.",
     highlights: [
       "Best time to visit: November through March",
       "Top destinations: Bali, Bangkok, Phuket, Hoi An, Siem Reap",
@@ -265,7 +265,7 @@ export const destinations: Destination[] = [
     continent: "Africa",
     tagline: "Nothing prepares you for your first safari.",
     description:
-      "Africa is the trip that resets you. Watching the Great Migration in the Serengeti, tracking gorillas in Rwanda, or watching the sun set over Victoria Falls — these are experiences that stay with you for the rest of your life.",
+      "Africa is the trip that resets you. Watching the Great Migration in the Serengeti, tracking gorillas in Rwanda, or watching the sun set over Victoria Falls. These are experiences that stay with you for the rest of your life.",
     highlights: [
       "Best time to visit: June through October for safari season",
       "Top destinations: Kenya, Tanzania, South Africa, Rwanda, Botswana",
@@ -296,7 +296,7 @@ export const destinations: Destination[] = [
     slug: "central-america",
     name: "Central America",
     continent: "North America",
-    tagline: "Rainforests, volcanoes, and beaches — all in one country.",
+    tagline: "Rainforests, volcanoes, and beaches, all in one country.",
     description:
       "Central America is one of the most underrated travel regions in the world. Costa Rica alone packs more biodiversity per square mile than almost anywhere on earth. Add Belize's barrier reef and Guatemala's Mayan ruins and you have a region that punches well above its weight.",
     highlights: [
@@ -324,9 +324,9 @@ export const destinations: Destination[] = [
     continent: "South America",
     tagline: "Machu Picchu. Patagonia. The Amazon. Pick your jaw drop.",
     description:
-      "South America is a continent of extremes — the driest desert, the largest rainforest, the longest mountain range, and some of the most vibrant cities on earth. This is a destination for people who want more than a beach.",
+      "South America is a continent of extremes: the driest desert, the largest rainforest, the longest mountain range, and some of the most vibrant cities on earth. This is a destination for people who want more than a beach.",
     highlights: [
-      "Best time to visit: Varies by country — generally April through November",
+      "Best time to visit: Varies by country, generally April through November",
       "Top destinations: Peru, Argentina, Brazil, Colombia, Chile",
       "Perfect for: Adventure, culture, bucket list, group travel",
       "Average flight time from Atlanta: 7–12 hours",
@@ -357,7 +357,7 @@ export const destinations: Destination[] = [
     continent: "Global",
     tagline: "One ship. Multiple countries. Zero repacking.",
     description:
-      "Cruising is one of the best values in travel — one price covers your room, food, entertainment, and transportation between destinations. From Caribbean sailings to Mediterranean voyages, there's a cruise for every budget and travel style.",
+      "Cruising is one of the best values in travel. One price covers your room, food, entertainment, and transportation between destinations. From Caribbean sailings to Mediterranean voyages, there's a cruise for every budget and travel style.",
     highlights: [
       "Best time to cruise: Caribbean year-round, Mediterranean May–October",
       "Top cruise lines: Royal Caribbean, Carnival, Norwegian, Celebrity, MSC",
@@ -390,7 +390,7 @@ export const destinations: Destination[] = [
     continent: "Global",
     tagline: "Pay once. Enjoy everything.",
     description:
-      "All-inclusive resorts are the stress-free vacation — one price covers your room, meals, drinks, and entertainment. No surprise bills, no planning every meal. Just show up and relax. The best ones are in Mexico, the Caribbean, and the Dominican Republic.",
+      "All-inclusive resorts are the stress-free vacation. One price covers your room, meals, drinks, and entertainment. No surprise bills, no planning every meal. Just show up and relax. The best ones are in Mexico, the Caribbean, and the Dominican Republic.",
     highlights: [
       "Best destinations: Cancún, Punta Cana, Jamaica, Aruba, St. Lucia",
       "Top resort brands: Sandals, Secrets, Excellence, Hard Rock, Iberostar",
@@ -402,7 +402,7 @@ export const destinations: Destination[] = [
     contactChips: ["All-inclusive resort", "Honeymoon", "Group trip"],
     deals: [
       {
-        title: "Sandals Jamaica — Couples Only",
+        title: "Sandals Jamaica, Couples Only",
         description:
           "The gold standard of all-inclusive. Unlimited premium dining, butler service, water sports.",
         price: "From $1,899/couple/night",

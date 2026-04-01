@@ -7,12 +7,12 @@ const faqs = [
   {
     question: "How far in advance should I book?",
     answer:
-      "For cruises and international trips, 3–6 months out is ideal. Groups and peak travel seasons — book 6–12 months ahead. The earlier you lock it in, the better the pricing and selection.",
+      "For cruises and international trips, 3–6 months out is ideal. For groups and peak travel seasons, book 6–12 months ahead. The earlier you lock it in, the better the pricing and selection.",
   },
   {
     question: "Do you charge a booking fee?",
     answer:
-      "Fees vary depending on the trip type. Many bookings carry no out-of-pocket fee to you at all — reach out and Cameron will be upfront about what to expect before anything is agreed to.",
+      "Fees vary depending on the trip type. Many bookings carry no out-of-pocket fee to you at all. Reach out and Cameron will be upfront about what to expect before anything is agreed to.",
   },
   {
     question: "Can I make payments over time?",
@@ -22,22 +22,22 @@ const faqs = [
   {
     question: "Do I need a passport?",
     answer:
-      "It depends on the destination. US citizens don't need a passport for domestic travel or most Caribbean islands. But for international destinations — Europe, Africa, Asia, the Maldives — a valid passport is required. Cameron will let you know exactly what you need during the planning process.",
+      "It depends on the destination. US citizens don't need a passport for domestic travel or most Caribbean islands. But for international destinations like Europe, Africa, Asia, and the Maldives, a valid passport is required. Cameron will let you know exactly what you need during the planning process.",
   },
   {
     question: "Do you handle group travel?",
     answer:
-      "Absolutely. Family reunions, birthday trips, church groups, friend groups — Cameron negotiates group rates, coordinates rooms and cabins, and handles the logistics so you can just enjoy the trip.",
+      "Absolutely. Family reunions, birthday trips, church groups, friend groups. Cameron negotiates group rates, coordinates rooms and cabins, and handles the logistics so you can just enjoy the trip.",
   },
   {
     question: "What if something goes wrong on my trip",
     answer:
-      "That's exactly why you book with a travel advisor. Cameron is your advocate — not a call center. If something goes sideways, he works directly with suppliers to resolve it and get your trip back on track.",
+      "That's exactly why you book with a travel advisor. Cameron is your advocate, not a call center. If something goes sideways, he works directly with suppliers to resolve it and get your trip back on track.",
   },
   {
     question: "Why book with Cameron instead of doing it myself?",
     answer:
-      "Hours of research, price-matching across dozens of sites, knowing which cabins to avoid and which resorts actually deliver — Cameron handles all of it. You get a better trip, less stress, and someone in your corner if anything goes wrong.",
+      "Hours of research, price-matching across dozens of sites, knowing which cabins to avoid and which resorts actually deliver. Cameron handles all of it. You get a better trip, less stress, and someone in your corner if anything goes wrong.",
   },
 ]
 
@@ -94,24 +94,32 @@ export default function FAQPage() {
       {/* Passport section */}
       <div className="bg-cream-gradient">
         <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 py-20">
-          <div className="p-8 bg-[var(--color-ink)] rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="p-8 bg-[var(--color-sky-50)] border border-[var(--color-sky-200)]/30 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-2">
                 Planning to travel internationally?
               </p>
-              <h3 className="font-body text-2xl font-bold tracking-tight text-white">
+              <h3 className="font-body text-2xl font-bold tracking-tight text-[var(--color-ink)]">
                 Need a passport before you <span className="font-display italic font-medium text-[var(--color-sky)]">travel</span>?
               </h3>
               <p className="font-body text-sm text-[var(--color-muted)] mt-2 leading-relaxed">
-                Most international trips require a valid U.S. passport. Apply or
-                renew directly through the U.S. Department of State.
+                Most international trips require a valid U.S. passport.{" "}
+                <a
+                  href="https://travel.state.gov/content/travel/en/passports.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-sky)] underline underline-offset-2 hover:opacity-80 transition-opacity duration-200"
+                >
+                  Apply or renew directly
+                </a>{" "}
+                through the U.S. Department of State.
               </p>
             </div>
             <a
               href="https://travel.state.gov/content/travel/en/passports.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline rounded-full px-8 py-3.5 text-sm font-semibold font-body shrink-0 whitespace-nowrap border-white/30 text-white hover:bg-white/10"
+              className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body shrink-0 whitespace-nowrap"
             >
               Apply for a U.S. Passport →
             </a>

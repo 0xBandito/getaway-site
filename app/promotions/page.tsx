@@ -36,7 +36,7 @@ const promotions = [
   },
   {
     tag: "Group Deal",
-    title: "Europe Tour — Groups of 6+",
+    title: "Europe Tour for Groups of 6+",
     description:
       "10-night Western Europe tour with group pricing. Paris, Rome, and Barcelona in one seamless trip.",
     price: "From $1,999/person",
@@ -54,7 +54,7 @@ const promotions = [
   },
   {
     tag: "Safari",
-    title: "Kenya & Tanzania — Early Bird",
+    title: "Kenya & Tanzania Early Bird",
     description:
       "10 nights across the Masai Mara and Serengeti. Book early for the best camp availability.",
     price: "From $5,499/person",

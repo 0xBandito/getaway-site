@@ -35,7 +35,7 @@ const cruiseLines = [
   {
     name: "Celebrity Cruises",
     description:
-      "A step up in luxury — modern ships, award-winning cuisine, and a more refined atmosphere.",
+      "A step up in luxury with modern ships, award-winning cuisine, and a more refined atmosphere.",
     bestFor: "Couples, luxury travelers, wine and food lovers",
     priceRange: "From $899/person",
     searchQuery: "luxury cruise ship elegant ocean",
@@ -126,7 +126,7 @@ export default function CruisesPage() {
             {[
               {
                 title: "One price covers everything",
-                body: "Your room, meals, entertainment, and transportation between destinations — all in one booking.",
+                body: "Your room, meals, entertainment, and transportation between destinations, all in one booking.",
               },
               {
                 title: "Multiple countries, one trip",
@@ -134,7 +134,7 @@ export default function CruisesPage() {
               },
               {
                 title: "Something for everyone",
-                body: "From budget-friendly Caribbean sailings to luxury Mediterranean voyages — there's a cruise for every traveler.",
+                body: "From budget-friendly Caribbean sailings to luxury Mediterranean voyages, there's a cruise for every traveler.",
               },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl border border-[var(--color-sky-200)]/30 shadow-sm hover:shadow-md card-lift p-6">

@@ -49,7 +49,7 @@ export default function HomeClient({ heroImage, featured }: Props) {
               style={{ fontFamily: "var(--font-jost)" }}
             >
               Tell Cameron where you've been dreaming of going.
-              Get a personalized plan built around you — not a template.
+              Get a personalized plan built around you, not a template.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -93,7 +93,7 @@ export default function HomeClient({ heroImage, featured }: Props) {
                 style={{ fontFamily: "var(--font-jost)" }}
               >
                 No call centers. No bots. No packages you didn't ask for.
-                Just Cameron — one person who handles every detail of your
+                Just Cameron, one person who handles every detail of your
                 trip from the first message to the moment you land home.
               </p>
             </div>
@@ -109,7 +109,7 @@ export default function HomeClient({ heroImage, featured }: Props) {
               {
                 number: "02",
                 title: "One person, start to finish",
-                body: "You work with Cameron directly. Someone who knows your trip as well as you do — and is reachable when you need them.",
+                body: "You work with Cameron directly. Someone who knows your trip as well as you do, and is reachable when you need them.",
               },
               {
                 number: "03",
@@ -202,7 +202,7 @@ export default function HomeClient({ heroImage, featured }: Props) {
                   className="text-xs tracking-[0.2em] uppercase text-[#1C3F6E]"
                   style={{ fontFamily: "var(--font-jost)" }}
                 >
-                  — Happy Traveler, Caribbean
+                  Happy Traveler, Caribbean
                 </p>
               </div>
             ))}

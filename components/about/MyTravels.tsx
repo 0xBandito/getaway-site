@@ -1,17 +1,17 @@
-const trips = [
-  { src: "/images/trips/egypt.jpg", label: "Egypt", rotate: "-rotate-2" },
-  { src: "/images/trips/jamaica.jpg", label: "Jamaica", rotate: "rotate-1" },
-  { src: "/images/trips/paris.jpg", label: "Paris", rotate: "-rotate-1" },
-  { src: "/images/trips/stmaarten.jpg", label: "St. Maarten", rotate: "rotate-2" },
-  { src: "/images/trips/washdc.jpg", label: "Washington D.C.", rotate: "-rotate-1" },
-  { src: "/images/trips/cairo_egypt.JPEG", label: "Cairo", rotate: "rotate-2" },
-  { src: "/images/trips/chicago.JPEG", label: "Chicago", rotate: "-rotate-2" },
-  { src: "/images/trips/dubai_uae.JPG", label: "Dubai", rotate: "rotate-1" },
-  { src: "/images/trips/la_california.JPEG", label: "Los Angeles", rotate: "-rotate-1" },
-  { src: "/images/trips/phuket_thailand.JPEG", label: "Phuket", rotate: "rotate-2" },
+const travels = [
+  { src: "/images/cameron/egypt.jpg", label: "Egypt", rotate: "-rotate-2" },
+  { src: "/images/cameron/jamaica.jpg", label: "Jamaica", rotate: "rotate-1" },
+  { src: "/images/cameron/paris.jpg", label: "Paris", rotate: "-rotate-1" },
+  { src: "/images/cameron/stmaarten.jpg", label: "St. Maarten", rotate: "rotate-2" },
+  { src: "/images/cameron/washdc.jpg", label: "Washington D.C.", rotate: "-rotate-1" },
+  { src: "/images/cameron/cairo_egypt.JPEG", label: "Cairo", rotate: "rotate-2" },
+  { src: "/images/cameron/chicago.JPEG", label: "Chicago", rotate: "-rotate-2" },
+  { src: "/images/cameron/dubai_uae.JPG", label: "Dubai", rotate: "rotate-1" },
+  { src: "/images/cameron/la_california.JPEG", label: "Los Angeles", rotate: "-rotate-1" },
+  { src: "/images/cameron/phuket_thailand.JPEG", label: "Phuket", rotate: "rotate-2" },
 ]
 
-export default function TripReel() {
+export default function MyTravels() {
   return (
     <section className="py-20 bg-cream-gradient">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
@@ -19,12 +19,11 @@ export default function TripReel() {
           My Travels
         </p>
         <div className="flex items-center justify-center gap-8 flex-wrap">
-          {trips.map((trip) => (
+          {travels.map((trip) => (
             <div
               key={trip.label}
               className={`flex flex-col items-center gap-4 ${trip.rotate} hover:rotate-0 transition-transform duration-500 cursor-default`}
             >
-              {/* Plane window frame */}
               <div
                 className="hover:scale-105 transition-transform duration-500"
                 style={{

@@ -119,7 +119,7 @@ export default function ContactForm() {
             Cameron
           </p>
           <p className="font-display text-xl font-medium text-[var(--color-ink)]">
-            Hey — where have you been dreaming of going?
+            Hey, where have you been dreaming of going?
           </p>
         </div>
       </div>

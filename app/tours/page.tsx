@@ -90,7 +90,7 @@ export default function ToursPage() {
           </h1>
           <p className="font-body text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">
             Curated multi-destination experiences built around the best each
-            region has to offer. Every tour is customizable — Cameron will
+            region has to offer. Every tour is customizable, and Cameron will
             adjust any itinerary to fit your <span className="font-display italic font-medium text-[var(--color-sky)]">travel style</span> and budget.
           </p>
         </div>

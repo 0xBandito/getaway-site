@@ -4,7 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { destinations } from "@/lib/destinations"
 import { getHeroImageForSlug, featuredSlugs } from "@/lib/images"
-import TripReel from "@/components/home/TripReel"
 import ParallaxHero from "@/components/home/ParallaxHero"
 
 export default function HomePage() {
@@ -53,7 +52,7 @@ export default function HomePage() {
             <div className="flex items-end">
               <p className="font-body text-base md:text-lg leading-[1.7] text-[var(--color-muted)]">
                 No call centers. No bots. No packages you didn't ask for.
-                Just Cameron — one person who handles every detail of your
+                Just Cameron, one person who handles every detail of your
                 trip from the first message to the moment you land home.
               </p>
             </div>
@@ -69,7 +68,7 @@ export default function HomePage() {
               {
                 number: "02",
                 title: "One person, start to finish",
-                body: "You work with Cameron directly. Someone who knows your trip as well as you do — and is reachable when you need them.",
+                body: "You work with Cameron directly. Someone who knows your trip as well as you do, and is reachable when you need them.",
               },
               {
                 number: "03",
@@ -115,10 +114,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== TRIP REEL ===== */}
-      <div className="bg-cream-gradient">
-        <TripReel />
-      </div>
 
       {/* ===== FEATURED DESTINATIONS ===== */}
       <section className="bg-cloud-gradient py-16 md:py-24 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
@@ -227,7 +222,7 @@ export default function HomePage() {
               <span className="font-display italic font-medium text-[var(--color-sky)]">Remembered.</span>
             </h2>
             <p className="font-body text-base leading-[1.7] text-[var(--color-muted)] max-w-lg">
-              Cameron believes travel should be effortless, not stressful. Every detail — flights, stays, itineraries, dining — is handled personally so you can focus on making memories that last a lifetime.
+              Cameron believes travel should be effortless, not stressful. Every detail, from flights and stays to itineraries and dining, is handled personally so you can focus on making memories that last a lifetime.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 content-start">
@@ -324,7 +319,7 @@ export default function HomePage() {
                 trip: "Family trip to Costa Rica",
               },
               {
-                quote: "Third year using Cameron — Portugal, Iceland, and now Thailand. He somehow tops himself every single time. I don't even look at other agencies anymore.",
+                quote: "Third year using Cameron. Portugal, Iceland, and now Thailand. He somehow tops himself every single time. I don't even look at other agencies anymore.",
                 name: "Sarah P.",
                 trip: "Repeat traveler · 3 trips",
               },
@@ -367,7 +362,7 @@ export default function HomePage() {
           </span>
         </h2>
         <p className="font-body text-base leading-[1.7] text-[var(--color-muted)] max-w-lg mx-auto mb-10">
-          Tell Cameron where you want to go and he&apos;ll handle every last detail — so you can focus on making memories.
+          Tell Cameron where you want to go and he&apos;ll handle every last detail, so you can focus on making memories.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link

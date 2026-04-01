@@ -1,27 +1,32 @@
 import Link from "next/link"
 import Image from "next/image"
+import MyTravels from "@/components/about/MyTravels"
 
 export const metadata = {
   title: "About | Travel With Cameron",
   description:
-    "Meet Cameron — the person behind every trip. Personalized travel planning built around you.",
+    "Meet Cameron, the person behind every trip. Personalized travel planning built around you.",
 }
 
 export default function AboutPage() {
   return (
     <section className="min-h-screen">
-      {/* Hero */}
-      <div className="relative h-[50vh] bg-[var(--color-ink)]">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: "url(/images/trips/washdc.jpg)" }}
+      {/* Hero — full photo visible */}
+      <div className="relative bg-[var(--color-ink)]">
+        <Image
+          src="/images/cameron/washdc.jpg"
+          alt="Cameron in Washington D.C."
+          width={4032}
+          height={2495}
+          className="w-full h-auto opacity-60"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply" />
-        <div className="relative z-10 h-full flex items-end max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 pb-12">
+        <div className="absolute bottom-0 left-0 right-0 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 pb-8 md:pb-12">
           <h1 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
             About{" "}
             <span className="font-display italic font-medium text-[var(--color-sky-300)]">
-              Travel With Cameron
+              Cameron.
             </span>
           </h1>
         </div>
@@ -46,8 +51,8 @@ export default function AboutPage() {
               <div className="space-y-6 font-body text-[var(--color-muted)] leading-relaxed">
                 <p>
                   My first trip was Washington, D.C. at 8 years old. Growing up
-                  in a military household — my father in the service, my mother
-                  in federal government — moving was just life. That shaped how I
+                  in a military household, my father in the service, my mother
+                  in federal government, moving was just life. That shaped how I
                   see the world.
                 </p>
                 <p>
@@ -69,10 +74,9 @@ export default function AboutPage() {
               </Link>
             </div>
 
-            {/* Right column: Photo first, then By The Numbers below */}
-            <div className="space-y-8">
-              {/* Cameron photo — above the stats */}
-              <div className="relative w-full max-w-sm mx-auto md:mx-0 aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
+            {/* Right column: Cameron photo — centered in its column */}
+            <div className="flex items-start justify-center">
+              <div className="relative w-full max-w-xs aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/cameron/camheadshot.JPG"
                   alt="Cameron — Travel Advisor"
@@ -81,47 +85,39 @@ export default function AboutPage() {
                   sizes="(max-width: 768px) 100vw, 400px"
                 />
               </div>
-
-              {/* By The Numbers — below photo and Plan Your Trip */}
-              <div className="rounded-2xl border border-[var(--color-sky-200)]/30 shadow-sm bg-white/80 backdrop-blur-sm p-8">
-                <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-6">
-                  By The Numbers
-                </p>
-                {[
-                  {
-                    number: "24–48hrs",
-                    label: "Response time on every inquiry",
-                  },
-                  {
-                    number: "12+",
-                    label: "Destinations we specialize in",
-                  },
-                  {
-                    number: "100%",
-                    label: "Personalized — no two trips alike",
-                  },
-                  {
-                    number: "1",
-                    label: "Person handling your trip, start to finish",
-                  },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="flex items-center gap-6 py-4 border-b border-[var(--color-sky-200)]/30 last:border-0"
-                  >
-                    <p className="font-display italic text-3xl font-medium text-[var(--color-sky)] w-24 shrink-0">
-                      {stat.number}
-                    </p>
-                    <p className="font-body text-sm text-[var(--color-muted)]">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* By The Numbers — full width horizontal strip */}
+      <div className="bg-cream-gradient border-y border-[var(--color-sky-200)]/30">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-14 md:py-20">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-10 text-center">
+            By The Numbers
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-[var(--color-sky-200)]/30">
+            {[
+              { number: "24–48hrs", label: "Response time on every inquiry" },
+              { number: "12+", label: "Destinations we specialize in" },
+              { number: "100%", label: "Personalized, because no two trips are alike" },
+              { number: "1", label: "Person handling your trip, start to finish" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center px-4 md:px-8">
+                <p className="font-display italic text-4xl md:text-5xl font-medium text-[var(--color-sky)] mb-2">
+                  {stat.number}
+                </p>
+                <p className="font-body text-sm md:text-base text-[var(--color-muted)]">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* My Travels */}
+      <MyTravels />
     </section>
   )
 }

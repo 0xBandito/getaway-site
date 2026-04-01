@@ -7,55 +7,43 @@ export const metadata = {
 }
 
 const trips = [
-  {
-    src: "/images/trips/egypt.jpg",
-    location: "Egypt",
-    caption: "The pyramids at sunrise.",
-    rotate: "-rotate-2",
-  },
-  {
-    src: "/images/trips/jamaica.jpg",
-    location: "Jamaica",
-    caption: "Seven Mile Beach.",
-    rotate: "rotate-1",
-  },
-  {
-    src: "/images/trips/paris.jpg",
-    location: "Paris, France",
-    caption: "The city of light.",
-    rotate: "-rotate-1",
-  },
-  {
-    src: "/images/trips/stmaarten.jpg",
-    location: "St. Maarten",
-    caption: "Half Dutch, half French.",
-    rotate: "rotate-2",
-  },
-  {
-    src: "/images/trips/washdc.jpg",
-    location: "Washington D.C.",
-    caption: "History and culture.",
-    rotate: "-rotate-1",
-  },
-  {
-    src: "/images/trips/egypt.jpg",
-    location: "PLACEHOLDER",
-    caption: "Add your photo here.",
-    rotate: "rotate-1",
-  },
-  {
-    src: "/images/trips/jamaica.jpg",
-    location: "PLACEHOLDER",
-    caption: "Add your photo here.",
-    rotate: "-rotate-2",
-  },
-  {
-    src: "/images/trips/paris.jpg",
-    location: "PLACEHOLDER",
-    caption: "Add your photo here.",
-    rotate: "rotate-1",
-  },
+  // Mexico
+  { src: "/images/trips/cancun_mexico.jpg", location: "Cancun, Mexico", destination: "Mexico", rotate: "-rotate-2" },
+  { src: "/images/trips/cancun_mexico2.jpg", location: "Cancun, Mexico", destination: "Mexico", rotate: "rotate-1" },
+  { src: "/images/trips/cancun_mexico3.jpg", location: "Cancun, Mexico", destination: "Mexico", rotate: "-rotate-1" },
+  { src: "/images/trips/tulum_mexico.JPEG", location: "Tulum, Mexico", destination: "Mexico", rotate: "-rotate-2" },
+  { src: "/images/trips/tulum_mexico2.JPEG", location: "Tulum, Mexico", destination: "Mexico", rotate: "rotate-1" },
+  { src: "/images/trips/tulum_mexico3.jpg", location: "Tulum, Mexico", destination: "Mexico", rotate: "-rotate-1" },
+  { src: "/images/trips/loscabos_mexico.jpg", location: "Los Cabos, Mexico", destination: "Mexico", rotate: "rotate-2" },
+  // Egypt
+  { src: "/images/trips/cairo.jpeg", location: "Cairo, Egypt", destination: "Africa", rotate: "rotate-2" },
+  { src: "/images/trips/cairo2.jpeg", location: "Cairo, Egypt", destination: "Africa", rotate: "-rotate-2" },
+  // Dubai, UAE
+  { src: "/images/trips/dubai_uae.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "rotate-2" },
+  { src: "/images/trips/dubai_uae2.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "-rotate-2" },
+  // Italy
+  { src: "/images/trips/italy.jpg", location: "Italy", destination: "Europe", rotate: "rotate-1" },
+  { src: "/images/trips/italy2.jpg", location: "Italy", destination: "Europe", rotate: "-rotate-1" },
+  { src: "/images/trips/italy3.jpg", location: "Italy", destination: "Europe", rotate: "rotate-2" },
+  // Las Vegas, NV
+  { src: "/images/trips/vegas.jpg", location: "Las Vegas, NV", destination: "Las Vegas", rotate: "-rotate-2" },
+  // Los Angeles, CA
+  { src: "/images/trips/la_cali.jpg", location: "Los Angeles, CA", destination: "Los Angeles", rotate: "rotate-1" },
+  // Jamaica
+  { src: "/images/trips/montego_bay_jamaica.JPEG", location: "Montego Bay, Jamaica", destination: "Caribbean", rotate: "rotate-1" },
+  // Paris, France
+  { src: "/images/trips/paris_france.jpg", location: "Paris, France", destination: "Europe", rotate: "-rotate-1" },
+  // Phuket, Thailand
+  { src: "/images/trips/phuket_thailand.JPEG", location: "Phuket, Thailand", destination: "Southeast Asia", rotate: "rotate-2" },
+  // Playa del Carmen, Mexico
+  { src: "/images/trips/playa_del_carmen_mexico.JPEG", location: "Playa del Carmen, Mexico", destination: "Mexico", rotate: "-rotate-2" },
+  // Puerto Rico
+  { src: "/images/trips/puerto_rico.JPEG", location: "Puerto Rico", destination: "Caribbean", rotate: "rotate-1" },
+  // Punta Cana, DR
+  { src: "/images/trips/punta_cana_dr.JPEG", location: "Punta Cana, DR", destination: "Caribbean", rotate: "-rotate-1" },
+  { src: "/images/trips/punta_cana_dr2.jpg", location: "Punta Cana, DR", destination: "Caribbean", rotate: "rotate-2" },
 ]
+
 
 export default function TripReelPage() {
   return (
@@ -70,7 +58,7 @@ export default function TripReelPage() {
             Real trips. <span className="font-display italic font-medium text-[var(--color-sky)]">Real memories</span>.
           </h1>
           <p className="font-body text-lg text-[var(--color-muted)] max-w-2xl mb-20 leading-relaxed">
-            Every photo is from a real trip — planned, booked, and handled
+            Every photo is from a real trip, planned, booked, and handled
             by Cameron.
           </p>
         </div>
@@ -141,14 +129,17 @@ export default function TripReelPage() {
                         loading="lazy"
                       />
                     </div>
-                    {/* Polaroid caption */}
+                    {/* Polaroid label + destination link */}
                     <div style={{ padding: "10px 4px 0" }}>
                       <p className="font-body text-xs text-[var(--color-ink)] font-semibold tracking-wide">
                         {trip.location}
                       </p>
-                      <p className="font-display italic text-sm text-[var(--color-muted)] mt-1">
-                        {trip.caption}
-                      </p>
+                      <Link
+                        href={`/contact?destination=${encodeURIComponent(trip.destination)}`}
+                        className="font-display italic text-sm text-[var(--color-sky)] mt-1 inline-block hover:underline underline-offset-2 transition-opacity duration-200 hover:opacity-80"
+                      >
+                        Plan this trip →
+                      </Link>
                     </div>
                   </div>
 
