@@ -161,7 +161,7 @@ export default function ParallaxHero() {
 
   return (
     <div ref={parallaxRef}>
-      <section className="relative" style={{ height: "500vh" }}>
+      <section className="relative" style={{ height: "350vh" }}>
         <div
           className="sticky top-0 w-full overflow-hidden"
           style={{ height: "100vh" }}
