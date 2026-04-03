@@ -105,8 +105,8 @@ export default function ParallaxHero() {
           scrollTrigger: {
             trigger: scene,
             start: "50% 0%",
-            end: "75% 0%",
-            scrub: 2, // Medium — speeding up
+            end: "65% 0%",
+            scrub: 1,
           },
         })
 
@@ -132,9 +132,9 @@ export default function ParallaxHero() {
         const postTl = gsap.timeline({
           scrollTrigger: {
             trigger: scene,
-            start: "75% 0%",
-            end: "100% 0%",
-            scrub: 0.3, // Light — back to normal
+            start: "65% 0%",
+            end: "85% 0%",
+            scrub: 0.3,
           },
         })
 
@@ -161,7 +161,7 @@ export default function ParallaxHero() {
 
   return (
     <div ref={parallaxRef}>
-      <section className="relative" style={{ height: "800vh" }}>
+      <section className="relative" style={{ height: "500vh" }}>
         <div
           className="sticky top-0 w-full overflow-hidden"
           style={{ height: "100vh" }}
