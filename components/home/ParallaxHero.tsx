@@ -18,7 +18,10 @@ export default function ParallaxHero() {
 
   useEffect(() => {
     setMounted(true)
-    // Scroll to top on page load/refresh
+    // Disable browser scroll restoration so refresh always starts at hero
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual"
+    }
     window.scrollTo(0, 0)
   }, [])
 
