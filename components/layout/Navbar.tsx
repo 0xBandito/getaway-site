@@ -7,7 +7,6 @@ import Link from "next/link"
 const links = [
   { label: "Destinations", href: "/destinations" },
   { label: "Cruises", href: "/cruises" },
-  { label: "Tours", href: "/tours" },
   { label: "Promotions", href: "/promotions" },
   { label: "Trip Reel", href: "/trip-reel" },
   { label: "FAQ", href: "/faq" },

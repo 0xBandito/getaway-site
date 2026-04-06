@@ -1,5 +1,5 @@
+import Image from "next/image"
 import Link from "next/link"
-import ImageCard from "@/components/ui/ImageCard"
 
 export const metadata = {
   title: "Cruises | Travel With Cameron",
@@ -7,89 +7,30 @@ export const metadata = {
     "Cruise planning made personal. Caribbean sailings, Mediterranean voyages, and everything in between.",
 }
 
-const cruiseLines = [
+const cruises = [
   {
-    name: "Royal Caribbean",
+    title: "Holiday Cruise Getaway - Bahamas",
     description:
-      "The world's largest cruise ships with onboard thrills, world-class dining, and Caribbean and Mediterranean itineraries.",
-    bestFor: "Families, first-timers, adventure seekers",
-    priceRange: "From $599/person",
-    searchQuery: "royal caribbean cruise ship ocean",
+      "Christmas on the water! 4 day Bahamas cruise departing from Miami, Florida. Stops at Half Moon Cay and Celebration Key.",
+    dates: "December 24-28, 2026",
+    deposit: "$50 per person",
+    pricing: [
+      { cabin: "Interior Room", price: "$615/person" },
+      { cabin: "Oceanview Room", price: "$715/person" },
+      { cabin: "Balcony Room", price: "$875/person" },
+    ],
+    image: "/images/promotions/bahamas_cruise.jpg",
+    tag: "Holiday Special",
   },
   {
-    name: "Carnival",
+    title: "Carnival Firenze & Miracle Sailings",
     description:
-      "Fun, affordable, and packed with entertainment. The most popular cruise line in the world for a reason.",
-    bestFor: "Groups, budget-conscious travelers, party atmosphere",
-    priceRange: "From $399/person",
-    searchQuery: "carnival cruise ship deck pool",
-  },
-  {
-    name: "Norwegian",
-    description:
-      "Freestyle cruising with no set dining times, specialty restaurants, and some of the best entertainment at sea.",
-    bestFor: "Couples, foodies, travelers who want flexibility",
-    priceRange: "From $699/person",
-    searchQuery: "norwegian cruise ship luxury ocean",
-  },
-  {
-    name: "Celebrity Cruises",
-    description:
-      "A step up in luxury with modern ships, award-winning cuisine, and a more refined atmosphere.",
-    bestFor: "Couples, luxury travelers, wine and food lovers",
-    priceRange: "From $899/person",
-    searchQuery: "luxury cruise ship elegant ocean",
-  },
-  {
-    name: "MSC Cruises",
-    description:
-      "European elegance on the water. MSC offers some of the best Mediterranean itineraries and stunning ship design.",
-    bestFor: "European itineraries, international travelers, couples",
-    priceRange: "From $549/person",
-    searchQuery: "mediterranean cruise ship sailing",
-  },
-  {
-    name: "Sandals at Sea",
-    description:
-      "Adults-only luxury cruising from the brand behind the world's best all-inclusive resorts.",
-    bestFor: "Couples, honeymoons, adults-only experience",
-    priceRange: "From $1,299/person",
-    searchQuery: "luxury adults only cruise caribbean",
-  },
-]
-
-const itineraries = [
-  {
-    title: "7-Night Bahamas & Caribbean",
-    ports: ["Miami", "Nassau", "CocoCay", "Key West"],
-    duration: "7 nights",
-    price: "From $599/person",
-    chip: "Caribbean cruise",
-    searchQuery: "bahamas caribbean beach turquoise water",
-  },
-  {
-    title: "10-Night Western Caribbean",
-    ports: ["Galveston", "Cozumel", "Roatán", "Belize City", "Costa Maya"],
-    duration: "10 nights",
-    price: "From $799/person",
-    chip: "Caribbean cruise",
-    searchQuery: "caribbean turquoise ocean tropical",
-  },
-  {
-    title: "12-Night Mediterranean",
-    ports: ["Barcelona", "Rome", "Athens", "Dubrovnik", "Venice"],
-    duration: "12 nights",
-    price: "From $1,499/person",
-    chip: "Caribbean cruise",
-    searchQuery: "mediterranean sea coast europe travel",
-  },
-  {
-    title: "14-Night Hawaii & Pacific",
-    ports: ["Los Angeles", "Maui", "Oahu", "Kauai", "Hilo"],
-    duration: "14 nights",
-    price: "From $1,299/person",
-    chip: "Caribbean cruise",
-    searchQuery: "hawaii ocean tropical island cruise",
+      "2027/2028 sailings now unlocked! Carnival Firenze brings Fun Italian Style to New York and Port Canaveral, while Carnival Miracle will move to Baltimore. Each offering unforgettable journeys to the Caribbean.",
+    dates: "2027/2028 Sailings",
+    deposit: "Contact for details",
+    pricing: [],
+    image: "/images/promotions/carnival_cruise.jpg",
+    tag: "New Sailings",
   },
 ]
 
@@ -151,52 +92,73 @@ export default function CruisesPage() {
         </div>
       </div>
 
-      {/* Featured itineraries with images */}
+      {/* Current Cruise Deals */}
       <div className="bg-cloud-gradient">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
           <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
-            Popular Itineraries
+            Current Deals
           </p>
           <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-12">
-            Where Do You Want To <span className="font-display italic font-medium text-[var(--color-sky)]">Sail</span>?
+            Available <span className="font-display italic font-medium text-[var(--color-sky)]">Sailings</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {itineraries.map((itinerary, index) => (
-              <ImageCard
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {cruises.map((cruise, index) => (
+              <div
                 key={index}
-                index={index}
-                searchQuery={itinerary.searchQuery}
-                title={itinerary.title}
-                subtitle={itinerary.ports.join(" → ")}
-                tag={itinerary.duration}
-                price={itinerary.price}
-                contactUrl={`/contact?destination=${encodeURIComponent(itinerary.title)}&type=Cruise`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+                className="rounded-2xl border border-[var(--color-sky-200)]/30 shadow-sm hover:shadow-md card-lift bg-white/80 backdrop-blur-sm overflow-hidden flex flex-col"
+              >
+                <div className="relative w-full aspect-[16/9]">
+                  <Image
+                    src={cruise.image}
+                    alt={cruise.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-block font-body text-xs font-semibold tracking-widest uppercase text-white bg-[var(--color-sunset)] px-3 py-1 rounded-full">
+                      {cruise.tag}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8 flex flex-col justify-between flex-1">
+                  <div>
+                    <h3 className="font-body text-2xl font-bold tracking-tight text-[var(--color-ink)] mb-3">
+                      {cruise.title}
+                    </h3>
+                    <p className="font-body text-sm text-[var(--color-muted)] leading-relaxed mb-4">
+                      {cruise.description}
+                    </p>
+                    <p className="font-body text-xs font-semibold text-[var(--color-sky)] tracking-wide mb-2">
+                      {cruise.dates}
+                    </p>
+                    <p className="font-body text-xs text-[var(--color-muted)] mb-6">
+                      Deposit: {cruise.deposit}
+                    </p>
 
-      {/* Cruise lines with images */}
-      <div className="bg-cream-gradient">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-20">
-          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4">
-            Cruise Lines
-          </p>
-          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)] mb-12">
-            Which Line Is <span className="font-display italic font-medium text-[var(--color-sky)]">Right</span> For You?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cruiseLines.map((line, index) => (
-              <ImageCard
-                key={line.name}
-                index={index}
-                searchQuery={line.searchQuery}
-                title={line.name}
-                subtitle={`Best for: ${line.bestFor}`}
-                price={line.priceRange}
-                contactUrl={`/contact?destination=${encodeURIComponent(line.name)}&type=Cruise`}
-              />
+                    {cruise.pricing.length > 0 && (
+                      <div className="border-t border-[var(--color-sky-200)]/30 pt-4 mb-6 space-y-2">
+                        {cruise.pricing.map((tier) => (
+                          <div key={tier.cabin} className="flex justify-between items-center">
+                            <span className="font-body text-sm text-[var(--color-muted)]">
+                              {tier.cabin}
+                            </span>
+                            <span className="font-body text-sm font-bold text-[var(--color-ink)]">
+                              {tier.price}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <Link
+                    href={`/contact?destination=${encodeURIComponent(cruise.title)}&type=Cruise`}
+                    className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body block text-center"
+                  >
+                    Book This Cruise
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -213,7 +175,7 @@ export default function CruisesPage() {
           </h2>
           <p className="font-body text-[var(--color-muted)] mb-10 leading-relaxed">
             Tell Cameron your budget, travel dates, and what kind of
-            experience you&apos;re looking for. Hear back within 24–48 hours.
+            experience you&apos;re looking for. Hear back within 24-48 hours.
           </p>
           <Link
             href="/contact?type=Cruise"

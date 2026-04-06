@@ -52,18 +52,25 @@ export const destinations: Destination[] = [
     contactChips: ["Caribbean cruise", "All-inclusive resort", "Honeymoon"],
     deals: [
       {
-        title: "7-Night Caribbean Cruise",
+        title: "Jamaican Getaway",
         description:
-          "Sail through the best of the Caribbean with stops in Cozumel, Grand Cayman, and Nassau.",
-        price: "From $899/person",
-        duration: "7 nights",
+          "Flights, 4-star all-inclusive resort, and airport transportation included. Multiple travel dates available.",
+        price: "From $1,170/person",
+        duration: "4 nights",
       },
       {
-        title: "All-Inclusive Aruba Escape",
+        title: "Christmas in Punta Cana",
         description:
-          "Five-star resort, all meals included, unlimited beach time. Aruba sits outside the hurricane belt, so sunshine is guaranteed.",
-        price: "From $1,499/person",
+          "Round-trip flights, all-inclusive resort, airport transfers, meals, drinks, and activities. December 22-26, 2026.",
+        price: "From $1,500/person",
         duration: "5 nights",
+      },
+      {
+        title: "Puerto Rico Christmas Getaway",
+        description:
+          "Escape to sunny Puerto Rico this Christmas. Round-trip flights and resort accommodations. No passport required! December 23-26, 2026.",
+        price: "From $1,200/person",
+        duration: "4 nights",
       },
     ],
   },
@@ -85,17 +92,10 @@ export const destinations: Destination[] = [
     contactChips: ["All-inclusive resort", "Group trip", "Honeymoon"],
     deals: [
       {
-        title: "Cancún All-Inclusive Package",
+        title: "Cancun Christmas",
         description:
-          "Beachfront resort, all meals and drinks, airport transfers. The most popular trip we book.",
-        price: "From $799/person",
-        duration: "4 nights",
-      },
-      {
-        title: "Los Cabos Luxury Escape",
-        description:
-          "Where the desert meets the sea. Five-star resorts, world-class dining, and some of the best sunsets on the planet.",
-        price: "From $1,299/person",
+          "Round-trip flights, all-inclusive beach resort, airport transfers, and all meals, drinks, and activities included. December 22-26, 2026.",
+        price: "From $1,650/person",
         duration: "5 nights",
       },
     ],
@@ -310,11 +310,18 @@ export const destinations: Destination[] = [
     contactChips: ["Group trip", "Not sure yet"],
     deals: [
       {
-        title: "Costa Rica Adventure",
+        title: "Costa Rica Escape",
         description:
-          "Zip-lining, white water rafting, wildlife tours, and a beach finish. The ultimate active vacation.",
-        price: "From $1,799/person",
-        duration: "8 nights",
+          "Roundtrip flights, 4-star all-inclusive resort, and airport transfers. Travel dates: Aug 18-22, Sept 12-16, Dec 5-8, 2026.",
+        price: "From $1,200/person",
+        duration: "4 nights",
+      },
+      {
+        title: "4 Night Getaway in Belize",
+        description:
+          "Flights from ATL, 4-star resort, and airport transportation. Travel dates: Sept 12-16 & Oct 21-25, 2026.",
+        price: "From $1,100/person",
+        duration: "4 nights",
       },
     ],
   },
@@ -369,18 +376,18 @@ export const destinations: Destination[] = [
     contactChips: ["Caribbean cruise", "Group trip"],
     deals: [
       {
-        title: "7-Night Bahamas Cruise",
+        title: "Holiday Cruise Getaway - Bahamas",
         description:
-          "Nassau, Perfect Day at CocoCay, and Key West. A crowd favorite for first-time cruisers.",
-        price: "From $599/person",
-        duration: "7 nights",
+          "4 day Bahamas cruise departing from Miami. Stops at Half Moon Cay and Celebration Key. December 24-28, 2026.",
+        price: "From $615/person",
+        duration: "4 nights",
       },
       {
-        title: "14-Night Mediterranean Cruise",
+        title: "Carnival Firenze & Miracle Sailings",
         description:
-          "Italy, Greece, Spain, and Croatia from one ship. The easiest way to see Europe.",
-        price: "From $1,499/person",
-        duration: "14 nights",
+          "2027/2028 sailings now unlocked. Carnival Firenze to New York and Port Canaveral, Carnival Miracle to Baltimore. Unforgettable Caribbean journeys.",
+        price: "Search for pricing",
+        duration: "Various",
       },
     ],
   },
@@ -402,18 +409,32 @@ export const destinations: Destination[] = [
     contactChips: ["All-inclusive resort", "Honeymoon", "Group trip"],
     deals: [
       {
-        title: "Sandals Jamaica, Couples Only",
+        title: "Universal Epic Universe",
         description:
-          "The gold standard of all-inclusive. Unlimited premium dining, butler service, water sports.",
-        price: "From $1,899/couple/night",
-        duration: "5 nights",
+          "Experience Universal Epic Universe in Orlando, Florida. Non-stop flights and hotel accommodations included. June 14-17 & July 16-19, 2026.",
+        price: "From $650/person",
+        duration: "4 nights",
       },
       {
-        title: "Punta Cana Family Resort",
+        title: "Holidays at Disney",
         description:
-          "Kids clubs, waterparks, family suites, and adults-only pools. Everyone wins.",
-        price: "From $899/person",
-        duration: "5 nights",
+          "Disney Resort (3 nights), 2 day park tickets, and Disney park transportation. Nov 23-25 & Dec 6-8, 2026.",
+        price: "From $455/person",
+        duration: "3 nights",
+      },
+      {
+        title: "The Luxury Escape - Dubai",
+        description:
+          "Roundtrip flights from Atlanta and 4-star resort accommodations. July 7-15 & Oct 4-11, 2026.",
+        price: "From $1,200/person",
+        duration: "8 nights",
+      },
+      {
+        title: "Thanksgiving in Dubai",
+        description:
+          "Round-trip flights, 4-star hotel accommodation, and daily breakfast included. Limited spots available. November 24 - December 1, 2026.",
+        price: "From $1,600/person",
+        duration: "7 nights",
       },
     ],
   },

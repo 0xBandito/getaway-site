@@ -3,7 +3,6 @@ import Link from "next/link"
 const exploreLinks = [
   { label: "Destinations", href: "/destinations" },
   { label: "Cruises", href: "/cruises" },
-  { label: "Tours", href: "/tours" },
   { label: "Promotions", href: "/promotions" },
 ]
 
