@@ -11,6 +11,7 @@ const promotions = [
   {
     tag: "Theme Park",
     title: "Universal Epic Universe",
+    destination: "Universal Epic Universe, Orlando",
     description:
       "Experience Universal Epic Universe in Orlando, Florida. Non-stop flights and hotel accommodations included.",
     price: "From $650/person",
@@ -21,6 +22,7 @@ const promotions = [
   {
     tag: "Beach Getaway",
     title: "Jamaican Getaway",
+    destination: "Jamaica",
     description:
       "Flights, 4-star all-inclusive resort, and airport transportation. Deposit: $225 per person.",
     price: "From $1,170/person",
@@ -31,16 +33,18 @@ const promotions = [
   {
     tag: "Luxury",
     title: "The Luxury Escape - Dubai",
+    destination: "Dubai",
     description:
       "Roundtrip flights from Atlanta and 4-star resort accommodations. Deposit: $300 per person.",
     price: "From $1,200/person",
     dates: "July 7-15 & Oct 4-11, 2026",
     image: "/images/promotions/dubai_luxury.jpg",
-    chip: "Luxury trip",
+    chip: "All-inclusive resort",
   },
   {
     tag: "Adventure",
     title: "Costa Rica Escape",
+    destination: "Costa Rica",
     description:
       "Roundtrip flights, 4-star all-inclusive resort, and airport transfers. Deposit: $300 per person.",
     price: "From $1,200/person",
@@ -51,26 +55,29 @@ const promotions = [
   {
     tag: "Beach Getaway",
     title: "4 Night Getaway in Belize",
+    destination: "Belize",
     description:
       "Flights from ATL, 4-star resort, and airport transportation. Deposit: $300 per person.",
     price: "From $1,100/person",
     dates: "Sept 12-16 & Oct 21-25, 2026",
     image: "/images/promotions/belize.jpg",
-    chip: "Beach getaway",
+    chip: "All-inclusive resort",
   },
   {
     tag: "Holiday Special",
     title: "Thanksgiving in Dubai",
+    destination: "Dubai",
     description:
       "Round-trip flights, 4-star hotel accommodation, and daily breakfast included. Limited spots available.",
     price: "From $1,600/person",
     dates: "November 24 - December 1, 2026",
     image: "/images/promotions/dubai_thanksgiving.jpg",
-    chip: "Holiday trip",
+    chip: "All-inclusive resort",
   },
   {
     tag: "Holiday Special",
     title: "Holidays at Disney",
+    destination: "Disney World, Orlando",
     description:
       "Disney Resort (3 nights), 2 day park tickets, and Disney park transportation. Deposit: $100 per person.",
     price: "From $455/person",
@@ -81,6 +88,7 @@ const promotions = [
   {
     tag: "Christmas",
     title: "Cancun Christmas",
+    destination: "Cancun, Mexico",
     description:
       "Round-trip flights, all-inclusive beach resort, airport transfers, and all meals, drinks, and activities included.",
     price: "From $1,650/person",
@@ -91,6 +99,7 @@ const promotions = [
   {
     tag: "Christmas",
     title: "Christmas in Punta Cana",
+    destination: "Punta Cana, Dominican Republic",
     description:
       "Round-trip flights, all-inclusive resort, airport transfers, meals, drinks, and activities. Deposit: $300 per person.",
     price: "From $1,500/person",
@@ -101,16 +110,18 @@ const promotions = [
   {
     tag: "Christmas",
     title: "Puerto Rico Christmas Getaway",
+    destination: "Puerto Rico",
     description:
       "Escape to sunny Puerto Rico this Christmas. Round-trip flights and resort accommodations. No passport required!",
     price: "From $1,200/person",
     dates: "December 23-26, 2026",
     image: "/images/promotions/puertorico.jpg",
-    chip: "Beach getaway",
+    chip: "All-inclusive resort",
   },
   {
     tag: "Cruise",
     title: "Holiday Cruise Getaway - Bahamas",
+    destination: "Bahamas Cruise",
     description:
       "4 day Bahamas cruise departing from Miami. Stops at Half Moon Cay and Celebration Key. Deposit: $50 per person.",
     price: "From $615/person",
@@ -121,6 +132,7 @@ const promotions = [
   {
     tag: "Cruise",
     title: "Carnival Firenze & Miracle Sailings",
+    destination: "Caribbean Cruise",
     description:
       "2027/2028 sailings now unlocked. Carnival Firenze to New York and Port Canaveral, Carnival Miracle to Baltimore. Unforgettable Caribbean journeys.",
     price: "Search for pricing",
@@ -189,7 +201,9 @@ export default function PromotionsPage() {
                       </p>
                     </div>
                     <Link
-                      href={`/contact?destination=${encodeURIComponent(promo.title)}&type=Resort`}
+                      href={`/contact?destination=${encodeURIComponent(promo.destination)}&type=${encodeURIComponent(
+                        promo.chip === "Cruise" ? "Cruise" : promo.chip === "Theme park" ? "Theme Park" : "All-Inclusive Resort"
+                      )}`}
                       className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body block text-center"
                     >
                       Claim This Deal

@@ -18,11 +18,12 @@ export default function ParallaxHero() {
 
   useEffect(() => {
     setMounted(true)
-    // Disable browser scroll restoration so refresh always starts at hero
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual"
+    // Only scroll to top on fresh navigation, not back/forward
+    const navEntries = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[]
+    const navType = navEntries.length > 0 ? navEntries[0].type : "navigate"
+    if (navType === "navigate" || navType === "reload") {
+      window.scrollTo(0, 0)
     }
-    window.scrollTo(0, 0)
   }, [])
 
   useEffect(() => {

@@ -3,7 +3,7 @@ type Props = {
   onChange: (value: string) => void
 }
 
-const chips = ["Cruise", "Tour", "Resort", "Not sure yet"]
+const chips = ["Cruise", "All-Inclusive Resort", "Theme Park", "Not sure yet"]
 
 export default function TripTypeChips({ selected, onChange }: Props) {
   return (

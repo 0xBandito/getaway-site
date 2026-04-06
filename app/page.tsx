@@ -174,6 +174,104 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== HOT DEALS ===== */}
+      <section className="bg-cream-gradient py-16 md:py-24 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
+        <div className="flex items-end justify-between mb-10 md:mb-14">
+          <div>
+            <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-sunset)] mb-3">
+              Limited Time
+            </p>
+            <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-ink)]">
+              Hot Deals
+            </h2>
+          </div>
+          <Link
+            href="/promotions"
+            className="hidden md:inline-flex items-center gap-2 font-body text-sm font-medium text-[var(--color-ink)] link-hover"
+          >
+            View All Promotions
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/>
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Jamaican Getaway",
+              destination: "Jamaica",
+              price: "From $1,170/person",
+              dates: "June - Sept 2026",
+              image: "/images/promotions/jamaica.jpg",
+              tag: "Beach Getaway",
+              tripType: "All-Inclusive Resort",
+            },
+            {
+              title: "Universal Epic Universe",
+              destination: "Universal Epic Universe, Orlando",
+              price: "From $650/person",
+              dates: "June - July 2026",
+              image: "/images/promotions/epic_universe.jpg",
+              tag: "Theme Park",
+              tripType: "Theme Park",
+            },
+            {
+              title: "Cancun Christmas",
+              destination: "Cancun, Mexico",
+              price: "From $1,650/person",
+              dates: "Dec 22-26, 2026",
+              image: "/images/promotions/cancun.jpg",
+              tag: "Holiday Special",
+              tripType: "All-Inclusive Resort",
+            },
+          ].map((promo) => (
+            <Link
+              key={promo.title}
+              href={`/contact?destination=${encodeURIComponent(promo.destination)}&type=${encodeURIComponent(promo.tripType)}`}
+              className="card-lift group cursor-pointer block"
+            >
+              <div className="rounded-xl overflow-hidden mb-4 relative h-[220px] md:h-[260px]">
+                <Image
+                  src={promo.image}
+                  alt={promo.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="font-body text-xs font-semibold tracking-widest uppercase text-white bg-[var(--color-sunset)] px-3 py-1 rounded-full">
+                    {promo.tag}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="font-body text-lg font-semibold text-[var(--color-ink)] mb-1">
+                    {promo.title}
+                  </h3>
+                  <p className="font-body text-xs text-[var(--color-muted)]">
+                    {promo.dates}
+                  </p>
+                </div>
+                <p className="font-body text-lg font-bold text-[var(--color-ink)]">
+                  {promo.price}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center md:hidden">
+          <Link
+            href="/promotions"
+            className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body inline-block"
+          >
+            View All Promotions
+          </Link>
+        </div>
+      </section>
+
       {/* ===== DREAM DESTINATIONS — Full width image ===== */}
       <section className="py-16 md:py-24 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
         <div className="mb-10 md:mb-14">

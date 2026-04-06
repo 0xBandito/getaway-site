@@ -40,7 +40,7 @@ export default function DestinationDeals({ deals, contactChips }: Props) {
                   {deal.price}
                 </p>
                 <Link
-                  href={`/contact?destination=${encodeURIComponent(deal.title)}&type=Resort`}
+                  href={`/contact?destination=${encodeURIComponent(deal.title)}&type=All-Inclusive Resort`}
                   className="btn-sky rounded-full px-6 py-3 text-xs tracking-widest uppercase"
                 >
                   Get A Quote

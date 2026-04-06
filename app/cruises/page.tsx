@@ -10,6 +10,7 @@ export const metadata = {
 const cruises = [
   {
     title: "Holiday Cruise Getaway - Bahamas",
+    destination: "Bahamas Cruise",
     description:
       "Christmas on the water! 4 day Bahamas cruise departing from Miami, Florida. Stops at Half Moon Cay and Celebration Key.",
     dates: "December 24-28, 2026",
@@ -24,6 +25,7 @@ const cruises = [
   },
   {
     title: "Carnival Firenze & Miracle Sailings",
+    destination: "Caribbean Cruise",
     description:
       "2027/2028 sailings now unlocked! Carnival Firenze brings Fun Italian Style to New York and Port Canaveral, while Carnival Miracle will move to Baltimore. Each offering unforgettable journeys to the Caribbean.",
     dates: "2027/2028 Sailings",
@@ -152,7 +154,7 @@ export default function CruisesPage() {
                     )}
                   </div>
                   <Link
-                    href={`/contact?destination=${encodeURIComponent(cruise.title)}&type=Cruise`}
+                    href={`/contact?destination=${encodeURIComponent(cruise.destination)}&type=Cruise`}
                     className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body block text-center"
                   >
                     Book This Cruise
