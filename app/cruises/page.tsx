@@ -34,6 +34,69 @@ const cruises = [
     image: "/images/promotions/carnival_cruise.jpg",
     tag: "New Sailings",
   },
+  {
+    title: "Carnival Cruise Adventure",
+    destination: "Bahamas & Celebration Key",
+    description:
+      "Budget-friendly Bahamas sailings with multiple dates and departure ports available August through November 2026. Two incredible stops — The Bahamas and Celebration Key.",
+    dates: "Aug 10-14, Aug 15-18, Aug 21-24, Nov 2-6, 2026",
+    deposit: "$50 per person",
+    pricing: [
+      { cabin: "Starting From", price: "$250/person" },
+    ],
+    image: "/images/promotions/carnival_cruise.jpg",
+    tag: "Budget Friendly",
+  },
+  {
+    title: "MLK Weekend Getaway - Virgin Voyages",
+    destination: "Key West & Bimini",
+    description:
+      "Sail different and celebrate Legacy in Luxury. Virgin Voyages adults-only (18+) cruise to Key West, Florida and Bimini, Bahamas. Luxury, modern, and unapologetic.",
+    dates: "January 14-18, 2027",
+    deposit: "$150 per person",
+    pricing: [],
+    image: "/images/promotions/mlk_cruise_sunset.jpg",
+    tag: "Adults Only",
+  },
+  {
+    title: "Spring Break at Sea - Icon of the Seas",
+    destination: "Icon of the Seas, Miami",
+    description:
+      "Join the ultimate Spring Break at Sea on Royal Caribbean's Icon of the Seas! Kids sail free — pay only taxes & fees. Amazing stops at St. Thomas, St. Maarten, and The Bahamas.",
+    dates: "April 3-10 & April 10-17, 2027",
+    deposit: "$250 per person",
+    pricing: [
+      { cabin: "Starting From", price: "$1,400/person" },
+    ],
+    image: "/images/promotions/cruise_sunset.jpg",
+    tag: "Family",
+  },
+  {
+    title: "Halloween Cruise - Utopia of the Seas",
+    destination: "Utopia of the Seas",
+    description:
+      "Where spooky meets sunny! 3 nights of spooktacular fun at sea on Royal Caribbean's Utopia of the Seas. Costumes, cocktails, and Caribbean good times with an amazing stop at The Bahamas.",
+    dates: "October 30 - November 2, 2026",
+    deposit: "$100 per person",
+    pricing: [
+      { cabin: "Starting From", price: "$600/person" },
+    ],
+    image: "/images/promotions/halloween_ship.jpg",
+    tag: "Seasonal",
+  },
+  {
+    title: "Holiday Cruise - Christmas & New Year's",
+    destination: "Holiday Cruise from Orlando",
+    description:
+      "Make every moment merry & bright! Choose your holiday adventure — Christmas Cruise (Dec 24-28, 2026) or New Year's Cruise (Dec 31-Jan 4, 2027). Departs from Orlando, Florida. Beautiful tropical destinations, festive celebrations, and holiday magic at sea.",
+    dates: "Dec 24-28, 2026 & Dec 31 - Jan 4, 2027",
+    deposit: "$75 per person",
+    pricing: [
+      { cabin: "Starting From", price: "$675/person" },
+    ],
+    image: "/images/promotions/holiday_cruise_clean.jpg",
+    tag: "Holiday Special",
+  },
 ]
 
 export default function CruisesPage() {

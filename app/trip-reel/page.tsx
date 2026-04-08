@@ -8,42 +8,42 @@ export const metadata = {
 
 const trips = [
   // Mexico
-  { src: "/images/trips/cancun_mexico.jpg", location: "Cancun, Mexico", destination: "Mexico", rotate: "-rotate-2" },
-  { src: "/images/trips/cancun_mexico2.jpg", location: "Cancun, Mexico", destination: "Mexico", rotate: "rotate-1" },
-  { src: "/images/trips/cancun_mexico3.jpg", location: "Cancun, Mexico", destination: "Mexico", rotate: "-rotate-1" },
-  { src: "/images/trips/tulum_mexico.JPEG", location: "Tulum, Mexico", destination: "Mexico", rotate: "-rotate-2" },
-  { src: "/images/trips/tulum_mexico2.JPEG", location: "Tulum, Mexico", destination: "Mexico", rotate: "rotate-1" },
-  { src: "/images/trips/tulum_mexico3.jpg", location: "Tulum, Mexico", destination: "Mexico", rotate: "-rotate-1" },
-  { src: "/images/trips/loscabos_mexico.jpg", location: "Los Cabos, Mexico", destination: "Mexico", rotate: "rotate-2" },
+  { src: "/images/trips/cancun_mexico.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
+  { src: "/images/trips/cancun_mexico2.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "rotate-1" },
+  { src: "/images/trips/cancun_mexico3.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-1" },
+  { src: "/images/trips/tulum_mexico.JPEG", location: "Tulum, Mexico", destination: "Tulum, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
+  { src: "/images/trips/tulum_mexico2.JPEG", location: "Tulum, Mexico", destination: "Tulum, Mexico", tripType: "All-Inclusive Resort", rotate: "rotate-1" },
+  { src: "/images/trips/tulum_mexico3.jpg", location: "Tulum, Mexico", destination: "Tulum, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-1" },
+  { src: "/images/trips/loscabos_mexico.jpg", location: "Los Cabos, Mexico", destination: "Los Cabos, Mexico", tripType: "All-Inclusive Resort", rotate: "rotate-2" },
   // Egypt
-  { src: "/images/trips/cairo.JPEG", location: "Cairo, Egypt", destination: "Africa", rotate: "rotate-2" },
-  { src: "/images/trips/cairo2.JPEG", location: "Cairo, Egypt", destination: "Africa", rotate: "-rotate-2" },
+  { src: "/images/trips/cairo.JPEG", location: "Cairo, Egypt", destination: "Cairo, Egypt", tripType: "Not sure yet", rotate: "rotate-2" },
+  { src: "/images/trips/cairo2.JPEG", location: "Cairo, Egypt", destination: "Cairo, Egypt", tripType: "Not sure yet", rotate: "-rotate-2" },
   // Dubai, UAE
-  { src: "/images/trips/dubai_uae.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "rotate-2" },
-  { src: "/images/trips/dubai_uae2.jpg", location: "Dubai, UAE", destination: "Southeast Asia", rotate: "-rotate-2" },
-  // Bail, Indoniesia
-  { src: "/images/trips/bali_indonesia.PNG", location: "Bali, Indonesia", destination: "Southeast Asia", rotate: "-rotate-2" },
+  { src: "/images/trips/dubai_uae.jpg", location: "Dubai, UAE", destination: "Dubai, UAE", tripType: "All-Inclusive Resort", rotate: "rotate-2" },
+  { src: "/images/trips/dubai_uae2.jpg", location: "Dubai, UAE", destination: "Dubai, UAE", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
+  // Bali, Indonesia
+  { src: "/images/trips/bali_indonesia.PNG", location: "Bali, Indonesia", destination: "Bali, Indonesia", tripType: "Not sure yet", rotate: "-rotate-2" },
   // Italy
-  { src: "/images/trips/italy.jpg", location: "Italy", destination: "Europe", rotate: "rotate-1" },
-  { src: "/images/trips/italy2.jpg", location: "Italy", destination: "Europe", rotate: "-rotate-1" },
-  { src: "/images/trips/italy3.jpg", location: "Italy", destination: "Europe", rotate: "rotate-2" },
+  { src: "/images/trips/italy.jpg", location: "Italy", destination: "Italy", tripType: "Not sure yet", rotate: "rotate-1" },
+  { src: "/images/trips/italy2.jpg", location: "Italy", destination: "Italy", tripType: "Not sure yet", rotate: "-rotate-1" },
+  { src: "/images/trips/italy3.jpg", location: "Italy", destination: "Italy", tripType: "Not sure yet", rotate: "rotate-2" },
   // Las Vegas, NV
-  { src: "/images/trips/vegas.jpg", location: "Las Vegas, NV", destination: "Las Vegas", rotate: "-rotate-2" },
+  { src: "/images/trips/vegas.jpg", location: "Las Vegas, NV", destination: "Las Vegas, NV", tripType: "Not sure yet", rotate: "-rotate-2" },
   // Los Angeles, CA
-  { src: "/images/trips/la_cali.jpg", location: "Los Angeles, CA", destination: "Los Angeles", rotate: "rotate-1" },
+  { src: "/images/trips/la_cali.jpg", location: "Los Angeles, CA", destination: "Los Angeles, CA", tripType: "Not sure yet", rotate: "rotate-1" },
   // Jamaica
-  { src: "/images/trips/montego_bay_jamaica.JPEG", location: "Montego Bay, Jamaica", destination: "Caribbean", rotate: "rotate-1" },
+  { src: "/images/trips/montego_bay_jamaica.JPEG", location: "Montego Bay, Jamaica", destination: "Montego Bay, Jamaica", tripType: "All-Inclusive Resort", rotate: "rotate-1" },
   // Paris, France
-  { src: "/images/trips/paris_france.jpg", location: "Paris, France", destination: "Europe", rotate: "-rotate-1" },
+  { src: "/images/trips/paris_france.jpg", location: "Paris, France", destination: "Paris, France", tripType: "Not sure yet", rotate: "-rotate-1" },
   // Phuket, Thailand
-  { src: "/images/trips/phuket_thailand.JPEG", location: "Phuket, Thailand", destination: "Southeast Asia", rotate: "rotate-2" },
+  { src: "/images/trips/phuket_thailand.JPEG", location: "Phuket, Thailand", destination: "Phuket, Thailand", tripType: "Not sure yet", rotate: "rotate-2" },
   // Playa del Carmen, Mexico
-  { src: "/images/trips/playa_del_carmen_mexico.JPEG", location: "Playa del Carmen, Mexico", destination: "Mexico", rotate: "-rotate-2" },
+  { src: "/images/trips/playa_del_carmen_mexico.JPEG", location: "Playa del Carmen, Mexico", destination: "Playa del Carmen, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
   // Puerto Rico
-  { src: "/images/trips/puerto_rico.JPEG", location: "Puerto Rico", destination: "Caribbean", rotate: "rotate-1" },
+  { src: "/images/trips/puerto_rico.JPEG", location: "Puerto Rico", destination: "Puerto Rico", tripType: "All-Inclusive Resort", rotate: "rotate-1" },
   // Punta Cana, DR
-  { src: "/images/trips/punta_cana_dr.JPEG", location: "Punta Cana, DR", destination: "Caribbean", rotate: "-rotate-1" },
-  { src: "/images/trips/punta_cana_dr2.jpg", location: "Punta Cana, DR", destination: "Caribbean", rotate: "rotate-2" },
+  { src: "/images/trips/punta_cana_dr.JPEG", location: "Punta Cana, DR", destination: "Punta Cana, Dominican Republic", tripType: "All-Inclusive Resort", rotate: "-rotate-1" },
+  { src: "/images/trips/punta_cana_dr2.jpg", location: "Punta Cana, DR", destination: "Punta Cana, Dominican Republic", tripType: "All-Inclusive Resort", rotate: "rotate-2" },
 ]
 
 
@@ -137,7 +137,7 @@ export default function TripReelPage() {
                         {trip.location}
                       </p>
                       <Link
-                        href={`/contact?destination=${encodeURIComponent(trip.destination)}`}
+                        href={`/contact?destination=${encodeURIComponent(trip.destination)}&type=${encodeURIComponent(trip.tripType)}`}
                         className="font-display italic text-sm text-[var(--color-sky)] mt-1 inline-block hover:underline underline-offset-2 transition-opacity duration-200 hover:opacity-80"
                       >
                         Plan this trip →

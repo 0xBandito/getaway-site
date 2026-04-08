@@ -62,10 +62,11 @@ export default function ContactForm() {
     setStatus("loading")
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           subject: `New Trip Inquiry — ${form.destinations || "General"}`,
           from_name: form.name,
           contact: form.contact,
@@ -136,6 +137,9 @@ export default function ContactForm() {
             placeholder="Caribbean, Europe, open to ideas..."
             className={inputClass}
           />
+          <p className="font-body text-xs text-[var(--color-muted)]/60 mt-1.5 italic">
+            Not limited to our featured destinations — Cameron plans trips worldwide.
+          </p>
         </div>
         <div>
           <label className={labelClass}>When Are You Thinking?</label>

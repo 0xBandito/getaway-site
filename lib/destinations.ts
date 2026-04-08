@@ -72,6 +72,13 @@ export const destinations: Destination[] = [
         price: "From $1,200/person",
         duration: "4 nights",
       },
+      {
+        title: "Puerto Rican Escape",
+        description:
+          "Roundtrip flights and 4-star resort accommodations. No passport required! Sept 15-18 & Nov 7-10, 2026.",
+        price: "From $750/person",
+        duration: "4 nights",
+      },
     ],
   },
   {
@@ -96,6 +103,13 @@ export const destinations: Destination[] = [
         description:
           "Round-trip flights, all-inclusive beach resort, airport transfers, and all meals, drinks, and activities included. December 22-26, 2026.",
         price: "From $1,650/person",
+        duration: "5 nights",
+      },
+      {
+        title: "Labor Day Weekend Getaway",
+        description:
+          "Roundtrip flights, 4-star all-inclusive resort, and airport transportation included. Sept 3-8 & Sept 3-6, 2026.",
+        price: "From $1,250/person",
         duration: "5 nights",
       },
     ],
@@ -257,6 +271,13 @@ export const destinations: Destination[] = [
         price: "From $1,899/person",
         duration: "10 nights",
       },
+      {
+        title: "The Asian Escape",
+        description:
+          "Roundtrip flights from ATL, 3 nights in Bangkok and 3 nights in Phuket, Thailand. Sept 16-27 & Oct 10-27, 2026.",
+        price: "From $1,600/person",
+        duration: "6 nights",
+      },
     ],
   },
   {
@@ -389,6 +410,41 @@ export const destinations: Destination[] = [
         price: "Search for pricing",
         duration: "Various",
       },
+      {
+        title: "Carnival Cruise Adventure",
+        description:
+          "Budget-friendly Bahamas sailing to The Bahamas and Celebration Key. Multiple dates Aug-Nov 2026.",
+        price: "From $250/person",
+        duration: "4 nights",
+      },
+      {
+        title: "MLK Weekend Getaway - Virgin Voyages",
+        description:
+          "Adults-only (18+) Virgin Voyages cruise to Key West and Bimini. January 14-18, 2027.",
+        price: "From $150 deposit",
+        duration: "4 nights",
+      },
+      {
+        title: "Spring Break at Sea - Icon of the Seas",
+        description:
+          "Royal Caribbean's Icon of the Seas departing Miami. Kids sail free! April 2027.",
+        price: "From $1,400/person",
+        duration: "7 nights",
+      },
+      {
+        title: "Halloween Cruise - Utopia of the Seas",
+        description:
+          "Spooky fun meets sunny skies on Royal Caribbean's Utopia of the Seas. Oct 30 - Nov 2, 2026.",
+        price: "From $600/person",
+        duration: "3 nights",
+      },
+      {
+        title: "Holiday Cruise - Christmas & New Year's",
+        description:
+          "Christmas Cruise (Dec 24-28) or New Year's Cruise (Dec 31-Jan 4). Departs from Orlando, Florida.",
+        price: "From $675/person",
+        duration: "4-5 nights",
+      },
     ],
   },
   {
@@ -435,6 +491,20 @@ export const destinations: Destination[] = [
           "Round-trip flights, 4-star hotel accommodation, and daily breakfast included. Limited spots available. November 24 - December 1, 2026.",
         price: "From $1,600/person",
         duration: "7 nights",
+      },
+      {
+        title: "Punta Cana Getaway",
+        description:
+          "Non-stop flights from ATL, 4-star all-inclusive resort, and airport transportation. Oct 26-31 & Nov 27-30, 2026.",
+        price: "From $1,200/person",
+        duration: "4-5 nights",
+      },
+      {
+        title: "Hilton Tulum All-Inclusive",
+        description:
+          "Kids & teens (17 and under) stay and eat free at the Hilton Tulum Riviera Maya All-Inclusive Resort. Limited time offer.",
+        price: "Kids & Teens Free",
+        duration: "Various",
       },
     ],
   },

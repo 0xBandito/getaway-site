@@ -39,6 +39,29 @@ export default function DestinationsClient({ destinations }: Props) {
           </div>
         )
       })}
+
+      {/* Anywhere callout */}
+      <div className="bg-cloud-gradient">
+        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
+          <p className="font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-sky)] mb-4">
+            Anywhere You Want To Go
+          </p>
+          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-ink)] mb-4">
+            Don&apos;t see your dream destination?
+          </h2>
+          <p className="font-body text-lg text-[var(--color-muted)] leading-relaxed mb-8">
+            These are just Cameron&apos;s featured spots. Whether it&apos;s a city you&apos;ve
+            been dreaming about or somewhere completely off the beaten path,
+            Cameron plans trips <span className="font-display italic font-medium text-[var(--color-sky)]">anywhere in the world</span>.
+          </p>
+          <Link
+            href="/contact"
+            className="btn-sky rounded-full px-8 py-3.5 text-sm font-semibold font-body inline-block"
+          >
+            Tell Cameron Where You Want To Go
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

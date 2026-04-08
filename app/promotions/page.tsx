@@ -9,6 +9,39 @@ export const metadata = {
 
 const promotions = [
   {
+    tag: "Sale",
+    title: "Easter Travel Deals",
+    destination: "Various Destinations",
+    description:
+      "Fresh season of travel is here! Deals on sunny beach getaways, fall escapes, holiday trips, and cruise adventures. Packages available through February 2027 & Spring Break cruises available!",
+    price: "Book Now & Save",
+    dates: "Limited Time",
+    image: "/images/promotions/easter_travel.jpg",
+    chip: "All-inclusive resort",
+  },
+  {
+    tag: "Sale",
+    title: "Spring Savings Event",
+    destination: "Hotel Stays",
+    description:
+      "Hop to it! Up to $200 off hotel stays. Up to $150 off 4-5 night stays, up to $100 off 3 night stays. Valid for most destinations.",
+    price: "Up to $200 Off",
+    dates: "Book April 3-6, Travel by Dec 31, 2026",
+    image: "/images/promotions/resort_pool.jpg",
+    chip: "All-inclusive resort",
+  },
+  {
+    tag: "Sale",
+    title: "MSC Cruises Spring Savings",
+    destination: "MSC Cruises",
+    description:
+      "Up to 30% off MSC cruises plus kids sail free on select sailings. Limited-time offer — restrictions apply.",
+    price: "Up to 30% Off",
+    dates: "Limited Time",
+    image: "/images/promotions/cruise_ship_ocean.jpg",
+    chip: "Cruise",
+  },
+  {
     tag: "Theme Park",
     title: "Universal Epic Universe",
     destination: "Universal Epic Universe, Orlando",
@@ -27,7 +60,7 @@ const promotions = [
       "Flights, 4-star all-inclusive resort, and airport transportation. Deposit: $225 per person.",
     price: "From $1,170/person",
     dates: "June 5-8, Aug 1-4, Sept 5-8, 2026",
-    image: "/images/promotions/jamaica.jpg",
+    image: "/images/promotions/jamaica_resort.jpg",
     chip: "All-inclusive resort",
   },
   {
@@ -49,7 +82,7 @@ const promotions = [
       "Roundtrip flights, 4-star all-inclusive resort, and airport transfers. Deposit: $300 per person.",
     price: "From $1,200/person",
     dates: "Aug 18-22, Sept 12-16, Dec 5-8, 2026",
-    image: "/images/promotions/costarica.jpg",
+    image: "/images/promotions/costarica_adventure.jpg",
     chip: "All-inclusive resort",
   },
   {
@@ -61,6 +94,61 @@ const promotions = [
     price: "From $1,100/person",
     dates: "Sept 12-16 & Oct 21-25, 2026",
     image: "/images/promotions/belize.jpg",
+    chip: "All-inclusive resort",
+  },
+  {
+    tag: "Beach Getaway",
+    title: "Puerto Rican Escape",
+    destination: "San Juan, Puerto Rico",
+    description:
+      "Roundtrip flights and 4-star resort accommodations. No passport required! Deposit: $250 per person.",
+    price: "From $750/person",
+    dates: "Sept 15-18 & Nov 7-10, 2026",
+    image: "/images/promotions/puertorico.jpg",
+    chip: "All-inclusive resort",
+  },
+  {
+    tag: "Beach Getaway",
+    title: "Punta Cana Getaway",
+    destination: "Punta Cana, Dominican Republic",
+    description:
+      "Non-stop flights from ATL, 4-star all-inclusive resort, and airport transportation included. Deposit: $225 per person.",
+    price: "From $1,200/person",
+    dates: "Oct 26-31 & Nov 27-30, 2026",
+    image: "/images/promotions/puntacana_fall.jpg",
+    chip: "All-inclusive resort",
+  },
+  {
+    tag: "Holiday Special",
+    title: "Labor Day Weekend Getaway",
+    destination: "Cancun, Mexico",
+    description:
+      "Roundtrip flights, 4-star all-inclusive resort, and airport transportation included. Deposit: $300 per person.",
+    price: "From $1,250/person",
+    dates: "Sept 3-8 & Sept 3-6, 2026",
+    image: "/images/promotions/labor_day_cancun.jpg",
+    chip: "All-inclusive resort",
+  },
+  {
+    tag: "Adventure",
+    title: "The Asian Escape",
+    destination: "Bangkok & Phuket, Thailand",
+    description:
+      "Roundtrip flights from ATL, 3 nights in Bangkok and 3 nights in Phuket. Packages start at $1,600 per person.",
+    price: "From $1,600/person",
+    dates: "Sept 16-27 & Oct 10-27, 2026",
+    image: "/images/promotions/bangkok_phuket.jpg",
+    chip: "Group trip",
+  },
+  {
+    tag: "Family",
+    title: "Hilton Tulum All-Inclusive",
+    destination: "Tulum, Riviera Maya",
+    description:
+      "Kids & teens (17 and under) stay and eat free! Book an all-inclusive family stay at the Hilton Tulum Riviera Maya resort.",
+    price: "Kids & Teens Free",
+    dates: "Limited Time",
+    image: "/images/promotions/tulum_resort.jpg",
     chip: "All-inclusive resort",
   },
   {
@@ -104,7 +192,7 @@ const promotions = [
       "Round-trip flights, all-inclusive resort, airport transfers, meals, drinks, and activities. Deposit: $300 per person.",
     price: "From $1,500/person",
     dates: "December 22-26, 2026",
-    image: "/images/promotions/puntacana.jpg",
+    image: "/images/promotions/puntacana_xmas_resort.jpg",
     chip: "All-inclusive resort",
   },
   {
@@ -138,6 +226,61 @@ const promotions = [
     price: "Search for pricing",
     dates: "2027/2028 Sailings",
     image: "/images/promotions/carnival_cruise.jpg",
+    chip: "Cruise",
+  },
+  {
+    tag: "Cruise",
+    title: "Carnival Cruise Adventure",
+    destination: "Bahamas & Celebration Key",
+    description:
+      "Budget-friendly Bahamas sailing with multiple dates and ports available. Two incredible stops, one unforgettable vacation.",
+    price: "From $250/person",
+    dates: "Aug - Nov 2026",
+    image: "/images/promotions/carnival_cruise.jpg",
+    chip: "Cruise",
+  },
+  {
+    tag: "Cruise",
+    title: "MLK Weekend Getaway",
+    destination: "Key West & Bimini - Virgin Voyages",
+    description:
+      "Virgin Voyages adults-only (18+) cruise to Key West and Bimini. Luxury, modern, and unapologetic. Deposits from $150.",
+    price: "From $150 deposit",
+    dates: "January 14-18, 2027",
+    image: "/images/promotions/mlk_cruise_sunset.jpg",
+    chip: "Cruise",
+  },
+  {
+    tag: "Cruise",
+    title: "Spring Break at Sea",
+    destination: "Icon of the Seas, Miami",
+    description:
+      "The ultimate spring break on Royal Caribbean's Icon of the Seas departing from Miami. Kids sail free — pay only taxes & fees!",
+    price: "From $1,400/person",
+    dates: "April 3-10 & April 10-17, 2027",
+    image: "/images/promotions/cruise_sunset.jpg",
+    chip: "Cruise",
+  },
+  {
+    tag: "Cruise",
+    title: "Halloween Cruise",
+    destination: "Utopia of the Seas",
+    description:
+      "Spooky fun meets sunny skies on Royal Caribbean's Utopia of the Seas! Costumes, cocktails, and Caribbean good times. Deposits from $100.",
+    price: "From $600/person",
+    dates: "Oct 30 - Nov 2, 2026",
+    image: "/images/promotions/halloween_ship.jpg",
+    chip: "Cruise",
+  },
+  {
+    tag: "Cruise",
+    title: "Holiday Cruise - Christmas & New Year's",
+    destination: "Holiday Cruise from Orlando",
+    description:
+      "Choose your holiday adventure — Christmas Cruise (Dec 24-28) or New Year's Cruise (Dec 31-Jan 4). Departs from Orlando, Florida.",
+    price: "From $675/person",
+    dates: "Dec 2026 - Jan 2027",
+    image: "/images/promotions/holiday_cruise_clean.jpg",
     chip: "Cruise",
   },
 ]
