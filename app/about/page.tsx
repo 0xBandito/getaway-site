@@ -3,9 +3,9 @@ import Image from "next/image"
 import MyTravels from "@/components/about/MyTravels"
 
 export const metadata = {
-  title: "About | Travel With Cameron",
+  title: "About",
   description:
-    "Meet Cameron, the person behind every trip. Personalized travel planning built around you.",
+    "Meet Cameron, the person behind every trip. Over 500 trips planned with 98% client satisfaction. One person, start to finish — every detail handled.",
 }
 
 export default function AboutPage() {

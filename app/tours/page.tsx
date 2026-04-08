@@ -2,9 +2,9 @@ import Link from "next/link"
 import ImageCard from "@/components/ui/ImageCard"
 
 export const metadata = {
-  title: "Tours | Travel With Cameron",
+  title: "Tours",
   description:
-    "Guided tours and curated travel experiences planned by Cameron.",
+    "Guided tours and curated travel experiences planned by Cameron. From European city tours to African safaris, every detail is handled so you can focus on the adventure.",
 }
 
 const tours = [

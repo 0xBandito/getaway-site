@@ -1,9 +1,9 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Trip Reel | Travel With Cameron",
+  title: "Trip Reel",
   description:
-    "Real trips. Real memories. A look at where Travel With Cameron has taken travelers around the world.",
+    "Real trips. Real memories. Browse photos from real vacations planned by Cameron — Mexico, Dubai, Jamaica, Bali, Italy, and more. Your trip could be next.",
 }
 
 const trips = [

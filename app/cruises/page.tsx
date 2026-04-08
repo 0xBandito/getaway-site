@@ -2,9 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Cruises | Travel With Cameron",
+  title: "Cruises",
   description:
-    "Cruise planning made personal. Caribbean sailings, Mediterranean voyages, and everything in between.",
+    "Cruise planning made personal. Caribbean sailings, Mediterranean voyages, and everything in between. Budget-friendly options from $250/person to luxury adult-only experiences.",
 }
 
 const cruises = [

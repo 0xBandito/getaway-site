@@ -18,11 +18,21 @@ export default function ParallaxHero() {
 
   useEffect(() => {
     setMounted(true)
-    // Only scroll to top on fresh navigation, not back/forward
     const navEntries = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[]
     const navType = navEntries.length > 0 ? navEntries[0].type : "navigate"
-    if (navType === "navigate" || navType === "reload") {
+    if (navType === "reload") {
+      // Only override scroll restore on reload, not back/forward
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual"
+      }
       window.scrollTo(0, 0)
+      requestAnimationFrame(() => window.scrollTo(0, 0))
+      // Restore default behavior after scroll so back button works normally
+      setTimeout(() => {
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "auto"
+        }
+      }, 100)
     }
   }, [])
 

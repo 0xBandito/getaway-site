@@ -20,8 +20,12 @@ export async function generateMetadata({
   if (!destination) return {}
 
   return {
-    title: `${destination.name} Travel | Travel With Cameron`,
-    description: destination.description,
+    title: `${destination.name} Travel`,
+    description: destination.description.slice(0, 160),
+    openGraph: {
+      title: `${destination.name} Travel | Travel With Cameron`,
+      description: destination.tagline,
+    },
   }
 }
 

@@ -2,9 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Promotions | Travel With Cameron",
+  title: "Promotions",
   description:
-    "Current travel deals and promotions. Limited time offers on cruises, all-inclusive resorts, and international trips.",
+    "Current travel deals and promotions from Travel With Cameron. Limited time offers on cruises, all-inclusive resorts, and international trips starting from $250/person.",
 }
 
 const promotions = [

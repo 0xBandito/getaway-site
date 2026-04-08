@@ -2,9 +2,9 @@ import { Suspense } from "react"
 import ContactForm from "@/components/contact/ContactForm"
 
 export const metadata = {
-  title: "Plan Your Trip | Travel With Cameron",
+  title: "Plan Your Trip",
   description:
-    "Tell Cameron where you want to go. Get a personalized travel plan built around you within 24–48 hours.",
+    "Tell Cameron where you want to go. Get a personalized travel plan built around you within 24–48 hours. No destination is off limits — Cameron plans trips worldwide.",
 }
 
 export default function ContactPage() {
