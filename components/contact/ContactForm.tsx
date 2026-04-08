@@ -6,7 +6,8 @@ import TripTypeChips from "./TripTypeChips"
 
 type FormState = {
   name: string
-  contact: string
+  email: string
+  phone: string
   destinations: string
   when: string
   travelers: string
@@ -18,7 +19,8 @@ type FormState = {
 
 const initialState: FormState = {
   name: "",
-  contact: "",
+  email: "",
+  phone: "",
   destinations: "",
   when: "",
   travelers: "",
@@ -41,6 +43,7 @@ export default function ContactForm() {
   const searchParams = useSearchParams()
   const [form, setForm] = useState<FormState>(initialState)
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [contactError, setContactError] = useState("")
 
   // URL param pre-population — DO NOT MODIFY
   useEffect(() => {
@@ -53,12 +56,41 @@ export default function ContactForm() {
     }))
   }, [searchParams])
 
+  function formatPhone(value: string): string {
+    const digits = value.replace(/\D/g, "").slice(0, 10)
+    if (digits.length <= 3) return digits
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    if (name === "phone") {
+      setForm((prev) => ({ ...prev, phone: formatPhone(value) }))
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }))
+    }
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    setContactError("")
+
+    if (!form.email && !form.phone) {
+      setContactError("Please provide at least an email address or phone number.")
+      return
+    }
+
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setContactError("Please enter a valid email address.")
+      return
+    }
+
+    if (form.phone && form.phone.replace(/\D/g, "").length < 10) {
+      setContactError("Please enter a valid 10-digit phone number.")
+      return
+    }
+
     setStatus("loading")
 
     try {
@@ -69,7 +101,8 @@ export default function ContactForm() {
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           subject: `New Trip Inquiry — ${form.destinations || "General"}`,
           from_name: form.name,
-          contact: form.contact,
+          email: form.email,
+          phone: form.phone,
           destinations: form.destinations,
           when: form.when,
           travelers: form.travelers,
@@ -85,6 +118,7 @@ export default function ContactForm() {
       if (data.success) {
         setStatus("success")
         setForm(initialState)
+        window.scrollTo({ top: 0, behavior: "smooth" })
       } else {
         setStatus("error")
       }
@@ -165,8 +199,8 @@ export default function ContactForm() {
 
       <div className="divider" />
 
-      {/* Name + Contact */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {/* Name + Email + Phone */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div>
           <label className={labelClass}>Your Name</label>
           <input
@@ -180,18 +214,32 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className={labelClass}>Best Way To Reach You</label>
+          <label className={labelClass}>Email Address</label>
           <input
-            type="text"
-            name="contact"
-            value={form.contact}
+            type="email"
+            name="email"
+            value={form.email}
             onChange={handleChange}
-            placeholder="Email or phone"
-            required
+            placeholder="you@example.com"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label className={labelClass}>Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            placeholder="(555) 123-4567"
+            maxLength={14}
             className={inputClass}
           />
         </div>
       </div>
+      {contactError && (
+        <p className="font-body text-red-500 text-sm -mt-4">{contactError}</p>
+      )}
 
       {/* Travelers, Budget, Passport */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
