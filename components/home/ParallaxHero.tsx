@@ -87,16 +87,16 @@ export default function ParallaxHero() {
           duration: 0.5,
         }, 0)
 
-        // Light flash
+        // Light flash — sits ABOVE the window so it actually masks the swap
         revealTl.fromTo("[data-layer='flare']", {
           opacity: 0,
         }, {
-          opacity: 0.3,
+          opacity: 0.55,
           ease: "sine.inOut",
-          duration: 0.15,
-        }, 0.4)
+          duration: 0.18,
+        }, 0.35)
 
-        // Destination fades in
+        // Destination fades in BEHIND the flare, finishing as the flare clears
         revealTl.fromTo("[data-layer='destination']", {
           scale: 1.08,
           opacity: 0,
@@ -104,15 +104,15 @@ export default function ParallaxHero() {
           scale: 1.06,
           opacity: 1,
           ease: "sine.inOut",
-          duration: 0.3,
-        }, 0.45)
+          duration: 0.35,
+        }, 0.35)
 
-        // Flash dissolves
+        // Flash dissolves — slower tail so the destination is fully in before the veil lifts
         revealTl.to("[data-layer='flare']", {
           opacity: 0,
           ease: "sine.inOut",
           duration: 0.3,
-        }, 0.55)
+        }, 0.53)
 
         // MID TRANSITION: Scrub loosens up as destination appears
         const midTl = gsap.timeline({
@@ -219,10 +219,10 @@ export default function ParallaxHero() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
             </div>
 
-            {/* Light flare overlay */}
+            {/* Light flare overlay — z-30 puts it above window (z-10) and vignette (z-11) so it masks the swap */}
             <div
               data-layer="flare"
-              className="absolute inset-0 z-[7] bg-white pointer-events-none"
+              className="absolute inset-0 z-30 bg-white pointer-events-none"
               style={{ opacity: 0 }}
             />
 
