@@ -14,28 +14,6 @@ export default function HomePage() {
       {/* ===== PARALLAX HERO ===== */}
       <ParallaxHero />
 
-      {/* ===== SEARCH BAR — bridges hero into content ===== */}
-      <section className="relative z-30 -mt-8 pb-12 md:pb-16 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
-        <div className="max-w-2xl mx-auto">
-          <div className="search-bar rounded-full px-6 py-3.5 flex items-center gap-3 shadow-lg shadow-[var(--color-sky-200)]/20">
-            <svg className="w-5 h-5 text-[var(--color-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
-            </svg>
-            <input
-              type="text"
-              placeholder="Search by destination, city, or experience"
-              className="w-full bg-transparent font-body text-sm text-[var(--color-ink)] placeholder:text-[var(--color-muted)] focus:outline-none"
-            />
-            <Link
-              href="/destinations"
-              className="btn-sky px-5 py-2 rounded-full text-sm font-semibold font-body shrink-0"
-            >
-              Search
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ===== WHY TRAVEL WITH CAMERON ===== */}
       <section className="bg-sky-wash py-24 md:py-32">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
