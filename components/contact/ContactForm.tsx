@@ -76,17 +76,17 @@ export default function ContactForm() {
     e.preventDefault()
     setContactError("")
 
-    if (!form.email && !form.phone) {
-      setContactError("Please provide at least an email address or phone number.")
+    if (!form.tripType) {
+      setContactError("Please select a type of trip.")
       return
     }
 
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       setContactError("Please enter a valid email address.")
       return
     }
 
-    if (form.phone && form.phone.replace(/\D/g, "").length < 10) {
+    if (form.phone.replace(/\D/g, "").length < 10) {
       setContactError("Please enter a valid 10-digit phone number.")
       return
     }
@@ -169,6 +169,7 @@ export default function ContactForm() {
             value={form.destinations}
             onChange={handleChange}
             placeholder="Caribbean, Europe, open to ideas..."
+            required
             className={inputClass}
           />
           <p className="font-body text-xs text-[var(--color-muted)]/60 mt-1.5 italic">
@@ -183,6 +184,7 @@ export default function ContactForm() {
             value={form.when}
             onChange={handleChange}
             placeholder="Summer 2026, flexible..."
+            required
             className={inputClass}
           />
         </div>
@@ -221,6 +223,7 @@ export default function ContactForm() {
             value={form.email}
             onChange={handleChange}
             placeholder="you@example.com"
+            required
             className={inputClass}
           />
         </div>
@@ -233,6 +236,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="(555) 123-4567"
             maxLength={14}
+            required
             className={inputClass}
           />
         </div>
@@ -245,7 +249,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div>
           <label className={labelClass}>Travelers</label>
-          <select name="travelers" value={form.travelers} onChange={handleChange} className={selectClass}>
+          <select name="travelers" value={form.travelers} onChange={handleChange} required className={selectClass}>
             <option value="">Select...</option>
             <option>Just me</option>
             <option>2 people</option>
@@ -256,7 +260,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={labelClass}>Budget Per Person</label>
-          <select name="budget" value={form.budget} onChange={handleChange} className={selectClass}>
+          <select name="budget" value={form.budget} onChange={handleChange} required className={selectClass}>
             <option value="">Select...</option>
             <option>Under $1,000</option>
             <option>$1,000 – $2,500</option>
@@ -267,7 +271,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={labelClass}>Valid Passport?</label>
-          <select name="passport" value={form.passport} onChange={handleChange} className={selectClass}>
+          <select name="passport" value={form.passport} onChange={handleChange} required className={selectClass}>
             <option value="">Select...</option>
             <option>Yes</option>
             <option>No</option>
@@ -285,6 +289,7 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Anniversary trip, bucket list, dietary needs, budget details..."
           rows={5}
+          required
           className={`${inputClass} resize-none`}
         />
       </div>
