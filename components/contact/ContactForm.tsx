@@ -41,11 +41,21 @@ const selectClass =
 const labelClass =
   "block font-body text-xs font-semibold tracking-widest uppercase text-[var(--color-sky)] mb-2"
 
+// Today's date as "YYYY-MM-DD" in the visitor's local timezone (matches native date inputs).
+function todayISO(): string {
+  const now = new Date()
+  const y = now.getFullYear()
+  const m = String(now.getMonth() + 1).padStart(2, "0")
+  const d = String(now.getDate()).padStart(2, "0")
+  return `${y}-${m}-${d}`
+}
+
 export default function ContactForm() {
   const searchParams = useSearchParams()
   const [form, setForm] = useState<FormState>(initialState)
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [contactError, setContactError] = useState("")
+  const [today, setToday] = useState("")
 
   // URL param pre-population — DO NOT MODIFY
   useEffect(() => {
@@ -57,6 +67,11 @@ export default function ContactForm() {
       tripType: type ? decodeURIComponent(type) : "",
     }))
   }, [searchParams])
+
+  // Floor the date pickers at today, computed client-side so it uses the visitor's timezone.
+  useEffect(() => {
+    setToday(todayISO())
+  }, [])
 
   function formatPhone(value: string): string {
     const digits = value.replace(/\D/g, "").slice(0, 10)
@@ -102,6 +117,11 @@ export default function ContactForm() {
 
     if (!form.startDate || !form.endDate) {
       setContactError("Please select your exact travel dates — both a start and end date.")
+      return
+    }
+
+    if (form.startDate < todayISO()) {
+      setContactError("Your travel start date can't be in the past — please pick today or a later date.")
       return
     }
 
@@ -208,6 +228,7 @@ export default function ContactForm() {
                 value={form.startDate}
                 onChange={handleChange}
                 required
+                min={today || undefined}
                 className={inputClass}
               />
             </div>
@@ -219,7 +240,7 @@ export default function ContactForm() {
                 value={form.endDate}
                 onChange={handleChange}
                 required
-                min={form.startDate || undefined}
+                min={form.startDate || today || undefined}
                 className={inputClass}
               />
             </div>
