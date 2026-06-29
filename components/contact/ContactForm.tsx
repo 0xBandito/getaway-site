@@ -340,14 +340,16 @@ export default function ContactForm() {
 
       {/* Notes */}
       <div>
-        <label className={labelClass}>Anything Else Cameron Should Know?</label>
+        <label className={labelClass}>
+          Anything Else Cameron Should Know?{" "}
+          <span className="normal-case tracking-normal font-normal text-[var(--color-muted)]">(optional)</span>
+        </label>
         <textarea
           name="notes"
           value={form.notes}
           onChange={handleChange}
           placeholder="Anniversary trip, bucket list, dietary needs, budget details..."
           rows={5}
-          required
           className={`${inputClass} resize-none`}
         />
       </div>
