@@ -9,7 +9,8 @@ type FormState = {
   email: string
   phone: string
   destinations: string
-  when: string
+  startDate: string
+  endDate: string
   travelers: string
   budget: string
   passport: string
@@ -22,7 +23,8 @@ const initialState: FormState = {
   email: "",
   phone: "",
   destinations: "",
-  when: "",
+  startDate: "",
+  endDate: "",
   travelers: "",
   budget: "",
   passport: "",
@@ -63,6 +65,13 @@ export default function ContactForm() {
     return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
   }
 
+  // Native date inputs return "YYYY-MM-DD"; show Cameron a friendly MM/DD/YYYY.
+  function formatDate(iso: string): string {
+    if (!iso) return ""
+    const [y, m, d] = iso.split("-")
+    return `${m}/${d}/${y}`
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value } = e.target
     if (name === "phone") {
@@ -91,6 +100,16 @@ export default function ContactForm() {
       return
     }
 
+    if (!form.startDate || !form.endDate) {
+      setContactError("Please select your exact travel dates — both a start and end date.")
+      return
+    }
+
+    if (form.endDate < form.startDate) {
+      setContactError("Your end date can't be before your start date.")
+      return
+    }
+
     setStatus("loading")
 
     try {
@@ -104,7 +123,9 @@ export default function ContactForm() {
           email: form.email,
           phone: form.phone,
           destinations: form.destinations,
-          when: form.when,
+          start_date: formatDate(form.startDate),
+          end_date: formatDate(form.endDate),
+          when: `${formatDate(form.startDate)} – ${formatDate(form.endDate)}`,
           travelers: form.travelers,
           budget: form.budget,
           passport: form.passport,
@@ -177,16 +198,32 @@ export default function ContactForm() {
           </p>
         </div>
         <div>
-          <label className={labelClass}>When Are You Thinking?</label>
-          <input
-            type="text"
-            name="when"
-            value={form.when}
-            onChange={handleChange}
-            placeholder="Summer 2026, flexible..."
-            required
-            className={inputClass}
-          />
+          <label className={labelClass}>When Are You Traveling?</label>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <span className="block font-body text-[11px] text-[var(--color-muted)] mb-1">Start date</span>
+              <input
+                type="date"
+                name="startDate"
+                value={form.startDate}
+                onChange={handleChange}
+                required
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <span className="block font-body text-[11px] text-[var(--color-muted)] mb-1">End date</span>
+              <input
+                type="date"
+                name="endDate"
+                value={form.endDate}
+                onChange={handleChange}
+                required
+                min={form.startDate || undefined}
+                className={inputClass}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
