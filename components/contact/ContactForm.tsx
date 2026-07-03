@@ -216,6 +216,14 @@ export default function ContactForm() {
           <p className="font-body text-xs text-[var(--color-muted)]/60 mt-1.5 italic">
             Not limited to our featured destinations — Cameron plans trips worldwide.
           </p>
+          <div className="mt-2 flex items-start gap-2 rounded-lg border border-[var(--color-sky-200)]/50 bg-[var(--color-sky-50)] px-3 py-2">
+            <svg className="w-4 h-4 shrink-0 mt-0.5 text-[var(--color-sky)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+            </svg>
+            <p className="font-body text-xs leading-relaxed text-[var(--color-ink)]/80">
+              Your first <span className="font-semibold text-[var(--color-sky)]">3 destination quotes are complimentary</span>. Each additional destination is quoted at <span className="font-semibold text-[var(--color-sky)]">$25</span>.
+            </p>
+          </div>
         </div>
         <div>
           <label className={labelClass}>When Are You Traveling?</label>
