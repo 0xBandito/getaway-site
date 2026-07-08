@@ -7,6 +7,9 @@ export const metadata = {
 }
 
 const trips = [
+  // Aruba
+  { src: "/images/trips/aruba1.JPEG", location: "Aruba", destination: "Aruba", tripType: "All-Inclusive Resort", rotate: "-rotate-1" },
+  { src: "/images/trips/aruba2.JPG", location: "Aruba", destination: "Aruba", tripType: "All-Inclusive Resort", rotate: "rotate-2" },
   // Mexico
   { src: "/images/trips/cancun_mexico.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
   { src: "/images/trips/cancun_mexico2.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "rotate-1" },
