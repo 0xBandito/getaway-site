@@ -40,6 +40,10 @@ const trips = [
   { src: "/images/trips/paris_france.jpg", location: "Paris, France", destination: "Paris, France", tripType: "Not sure yet", rotate: "-rotate-1" },
   // Phuket, Thailand
   { src: "/images/trips/phuket_thailand.JPEG", location: "Phuket, Thailand", destination: "Phuket, Thailand", tripType: "Not sure yet", rotate: "rotate-2" },
+  // Thailand
+  { src: "/images/trips/thailand.jpg", location: "Thailand", destination: "Thailand", tripType: "Not sure yet", rotate: "rotate-1" },
+  { src: "/images/trips/thailand2.jpg", location: "Thailand", destination: "Thailand", tripType: "Not sure yet", rotate: "-rotate-2" },
+  { src: "/images/trips/thailand3.jpg", location: "Thailand", destination: "Thailand", tripType: "Not sure yet", rotate: "rotate-2" },
   // Playa del Carmen, Mexico
   { src: "/images/trips/playa_del_carmen_mexico.JPEG", location: "Playa del Carmen, Mexico", destination: "Playa del Carmen, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
   // Puerto Rico
