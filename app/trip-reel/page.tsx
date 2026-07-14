@@ -10,6 +10,11 @@ const trips = [
   // Aruba
   { src: "/images/trips/aruba1.JPEG", location: "Aruba", destination: "Aruba", tripType: "All-Inclusive Resort", rotate: "-rotate-1" },
   { src: "/images/trips/aruba2.JPG", location: "Aruba", destination: "Aruba", tripType: "All-Inclusive Resort", rotate: "rotate-2" },
+  // Carnival Caribbean Cruise
+  { src: "/images/trips/carribean_carnival_vista_cruise.jpeg", location: "Caribbean Cruise", destination: "Caribbean Cruise", tripType: "Cruise", rotate: "-rotate-2" },
+  { src: "/images/trips/carribean_carnival_vista_cruise2.jpeg", location: "Caribbean Cruise", destination: "Caribbean Cruise", tripType: "Cruise", rotate: "rotate-1" },
+  { src: "/images/trips/carribean_carnival_vista_cruise3.jpeg", location: "Caribbean Cruise", destination: "Caribbean Cruise", tripType: "Cruise", rotate: "-rotate-1" },
+  { src: "/images/trips/carribean_carnival_vista_cruise4.jpeg", location: "Caribbean Cruise", destination: "Caribbean Cruise", tripType: "Cruise", rotate: "rotate-2" },
   // Mexico
   { src: "/images/trips/cancun_mexico.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "-rotate-2" },
   { src: "/images/trips/cancun_mexico2.jpg", location: "Cancun, Mexico", destination: "Cancun, Mexico", tripType: "All-Inclusive Resort", rotate: "rotate-1" },
