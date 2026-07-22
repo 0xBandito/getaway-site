@@ -395,9 +395,9 @@ export default function HomePage() {
                 trip: "Family trip to Costa Rica",
               },
               {
-                quote: "Third year using Cameron. Portugal, Iceland, and now Thailand. He somehow tops himself every single time. I don't even look at other agencies anymore.",
-                name: "Sarah P.",
-                trip: "Repeat traveler · 3 trips",
+                quote: "Thank you for planning the Japan trip — it was great! You always do such a great job and I really appreciate you. I'll definitely be reaching out again to plan our next family vacation.",
+                name: "Dawn",
+                trip: "Trip to Japan",
               },
             ].map((t, i) => (
               <div
